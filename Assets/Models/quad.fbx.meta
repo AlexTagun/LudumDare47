@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: 2233a2d4ed71a9a45ab4f86f95fd48f3
+guid: df55e9e09c60a4744bc01fe7c16a59c6
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -5187248419258813496
+    second: Plane|PlaneAction
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: ae640823527662e4288554a1e38a288b, type: 2}
+    second: {fileID: 2100000, guid: fa9a280c0861b3b40b2c3b3a032aee4b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -39,7 +42,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 300
+    globalScale: 250
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -86,7 +89,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 300
+    globalScale: 250
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
