@@ -6,6 +6,7 @@ public class PartObstacle : MonoBehaviour
 {
     public bool IsCanBreak = false;
     public Obstacle parent = null;
+    public MeshRenderer meshRenderer = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,9 @@ public class PartObstacle : MonoBehaviour
     {
         if (IsCanBreak)
         {
-            parent.IsNeedUpdate = true;
-            Destroy(gameObject);
+            parent.CurrenNumberOfDestructibleBlocks--;
+            gameObject.SetActive(false);
         }
+        // смерть врезающегося объекта
     }
 }

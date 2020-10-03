@@ -43,7 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1e1fd0bab58fc4a878286ff55b8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfImmuneBlocks: 10
-  MinNumberOfImmuneBlocks: 0
+  NumberObstacles: 10
+  DistanceBetweenSpawnObstacles: 0
+  startPositionToSpawn: {fileID: 2816383646284190017, guid: b4266caa5735ac449b4e4b6859b94ef8,
+    type: 3}
+  spawnPrefab: {fileID: 6367448386383919990, guid: 1dac0daf53978b546a503c12e161a3db,
+    type: 3}
+  MaxNumberOfImmuneBlocks: 20
+  MinNumberOfImmuneBlocks: 10
+  DelayBeforeMovingObstacle: 5
+  DelayBeforeMovingPartLevel: 5
   partsLevel: []
   obstacles: []

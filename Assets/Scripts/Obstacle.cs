@@ -7,8 +7,10 @@ public class Obstacle : MonoBehaviour
 
     public SpawnController spawnController = null;
     public List<PartObstacle> partsObstacle = new List<PartObstacle>();
-    public bool IsNeedUpdate = false;
     public int CurrenNumberOfDestructibleBlocks = 0;
+    public Material materialDestructibleBlocks = null;
+    public Material materialIndestructibleBlocks = null;
+
 
     int[] array = new int[25];
     private System.Random _random = new System.Random();
@@ -24,7 +26,17 @@ public class Obstacle : MonoBehaviour
         }
         Init();
     }
+    void Update()
+    {
 
+    }
+    public void CheckForDestructiveBlock()
+    {
+        if (CurrenNumberOfDestructibleBlocks == 0)
+        {
+            RefreshObstacle();
+        }
+    }
     public void Init()
     {
         for (int i = 0; i < array.Length; i++)
@@ -38,26 +50,36 @@ public class Obstacle : MonoBehaviour
         for(int i = 0; i < array.Length; i++)
         {
             var element = array[i];
-            Debug.Log("[" + i + "]" +element);
             if (element < CurrenNumberOfDestructibleBlocks)
             {
-                partsObstacle[i].IsCanBreak = true;
+                MakeBlockIsDestructible(partsObstacle[i]);
             }
             else
             {
-                partsObstacle[i].IsCanBreak = false;
+                MakeBlockIsIndestructible(partsObstacle[i]);
             }
         }
     }
     // Update is called once per frame
-    void Update()
-    {
-        if (IsNeedUpdate)
-        {
-            foreach (var part in partsObstacle)
-            {
+    
 
-            }
+    public void MakeBlockIsIndestructible(PartObstacle block)
+    {
+        block.IsCanBreak = false;
+        block.meshRenderer.material = materialIndestructibleBlocks;
+    }
+    public void MakeBlockIsDestructible(PartObstacle block)
+    {
+        block.IsCanBreak = true;
+        block.meshRenderer.material = materialDestructibleBlocks;
+    }
+
+    public void RefreshObstacle()
+    {
+        Init();
+        foreach (var part in partsObstacle)
+        {
+            part.gameObject.SetActive(true);
         }
     }
     private void Shuffle(int[] array)
