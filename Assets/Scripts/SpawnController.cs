@@ -19,6 +19,8 @@ public class SpawnController : MonoBehaviour
 
     public List<GameObject> partsLevel = new List<GameObject>();
     public List<GameObject> obstacles = new List<GameObject>();
+
+    public GameObject NextNearestObstacles => obstacles[0];
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,8 @@ public class SpawnController : MonoBehaviour
     }
     public IEnumerator MovingObstacleCoroutine(GameObject obstacle) // не забыть выключить ее когда мы проиграли
     {
+        obstacles.RemoveAt(0);
+        obstacles.Add(obstacle);
         yield return new WaitForSeconds(DelayBeforeMovingObstacle);
 
         MoveObstacle(obstacle);
