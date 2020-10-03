@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4319759895031049009}
   - component: {fileID: 4319759895031049008}
   - component: {fileID: 4319759895031049015}
+  - component: {fileID: 8992125326042435665}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -109,3 +110,16 @@ MonoBehaviour:
   IsCanBreak: 0
   parent: {fileID: 0}
   meshRenderer: {fileID: 4319759895031049009}
+  rocketTarget: {fileID: 8992125326042435665}
+--- !u!114 &8992125326042435665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319759895031049014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a51bc3228f7d54f996e3d4be8032f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

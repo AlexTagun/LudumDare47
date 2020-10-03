@@ -26,10 +26,11 @@ namespace GameInput
 public class SpaceShipPlayerController : MonoBehaviour
 {
     private void Awake() {
-        _moveRightPushButton = new GameInput.PushButton(KeyCode.D, () => _movement.moveRight());
-        _moveLeftPushButton = new GameInput.PushButton(KeyCode.A, () => _movement.moveLeft());
-        _moveUpPushButton = new GameInput.PushButton(KeyCode.W, () => _movement.moveUp());
-        _moveDownPushButton = new GameInput.PushButton(KeyCode.S, () => _movement.moveDown());
+        _moveRightPushButton = new GameInput.PushButton(KeyCode.D, _movement.moveRight);
+        _moveLeftPushButton = new GameInput.PushButton(KeyCode.A, _movement.moveLeft);
+        _moveUpPushButton = new GameInput.PushButton(KeyCode.W, _movement.moveUp);
+        _moveDownPushButton = new GameInput.PushButton(KeyCode.S, _movement.moveDown);
+        _shootPushButton = new GameInput.PushButton(KeyCode.Space, _rocketSpawner.spawnRocket);
     }
 
     private void FixedUpdate() {
@@ -37,13 +38,18 @@ public class SpaceShipPlayerController : MonoBehaviour
         _moveLeftPushButton.update();
         _moveUpPushButton.update();
         _moveDownPushButton.update();
+        _shootPushButton.update();
     }
 
     [SerializeField]
     private SpaceShipMovement _movement = null;
 
+    [SerializeField]
+    private RocketSpawner _rocketSpawner = null;
+
     private GameInput.PushButton _moveRightPushButton;
     private GameInput.PushButton _moveLeftPushButton;
     private GameInput.PushButton _moveUpPushButton;
     private GameInput.PushButton _moveDownPushButton;
+    private GameInput.PushButton _shootPushButton;
 }
