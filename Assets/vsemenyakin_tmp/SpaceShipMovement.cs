@@ -35,7 +35,7 @@ public class SpaceShipMovement : MonoBehaviour
         Vector2 theDeltaSideVector = _targetSidePosition - currentSidePosition;
         float theSideStepDistance = theDeltaSideVector.magnitude / step;
 
-        _timeToAchieveTargetPosition = theSideStepDistance / _sideStepSpeed;
+        //_timeToAchieveTargetPosition = theSideStepDistance / _sideStepSpeed;
     }
 
     private void FixedUpdate() {
@@ -43,23 +43,39 @@ public class SpaceShipMovement : MonoBehaviour
         updateFrontMovement();
     }
     private void updateSideMovement() {
-        _timeToAchieveTargetPosition -= Time.fixedDeltaTime;
+        //_timeToAchieveTargetPosition -= Time.fixedDeltaTime;
 
         Vector2 theDeltaSideVector = _targetSidePosition - currentSidePosition;
         float theDeltaSideVectorMagnitude = theDeltaSideVector.magnitude;
+        if (Mathf.Approximately(theDeltaSideVectorMagnitude, 0f))
+            return;
+        Vector2 theDeltaSideVectorNormal = theDeltaSideVector / theDeltaSideVectorMagnitude;
 
-        float theFrameSideSpeed = theDeltaSideVectorMagnitude / _timeToAchieveTargetPosition;
-        float theFrameSideDistnace = theFrameSideSpeed * Time.fixedDeltaTime;
+        float theSideVelocityMagnitude = _sideVelocityVector.magnitude;
+        float theTimeToMakeSideVelocityZero = theSideVelocityMagnitude / _maxAcceleration;
+        float theDistanceToMakeSideVelocityZero =
+            (theSideVelocityMagnitude - _maxAcceleration * theTimeToMakeSideVelocityZero / 2f) *
+            theTimeToMakeSideVelocityZero;
+        bool theDoSpeedIncrease = (theDistanceToMakeSideVelocityZero > theDeltaSideVectorMagnitude);
 
-        if (theDeltaSideVectorMagnitude > theFrameSideDistnace) {
-            Vector3 theDeltaSideVector3 = theDeltaSideVector;
-            transform.position += theDeltaSideVector3 / theDeltaSideVectorMagnitude * theFrameSideDistnace;
-        } else {
-            transform.position = new Vector3(
-                _targetSidePosition.x,
-                _targetSidePosition.y,
-                transform.position.z);
-        }
+        float theDeltaVelocity = _maxAcceleration * (theDoSpeedIncrease ? 1f : -1f);
+        _sideVelocityVector += theDeltaSideVectorNormal * theDeltaVelocity;
+
+        Vector3 theSideVelocity3 = _sideVelocityVector;
+        transform.position += theSideVelocity3 * Time.deltaTime;
+
+        //float theFrameSideSpeed = theDeltaSideVectorMagnitude / _timeToAchieveTargetPosition;
+        //float theFrameSideDistnace = theFrameSideSpeed * Time.fixedDeltaTime;
+        //
+        //if (theDeltaSideVectorMagnitude > theFrameSideDistnace) {
+        //    Vector3 theDeltaSideVector3 = theDeltaSideVector;
+        //    transform.position += theDeltaSideVector3 / theDeltaSideVectorMagnitude * theFrameSideDistnace;
+        //} else {
+        //    transform.position = new Vector3(
+        //        _targetSidePosition.x,
+        //        _targetSidePosition.y,
+        //        transform.position.z);
+        //}
     }
 
     private void updateFrontMovement() {
@@ -78,8 +94,12 @@ public class SpaceShipMovement : MonoBehaviour
     float _frontSpeed = 1f;
 
     [SerializeField]
-    float _sideStepSpeed = 1f;
+    float _timeToPassStep = 1f;
+
+    [SerializeField]
+    float _maxAcceleration = 0.1f;
 
     Vector2 _targetSidePosition = Vector2.zero;
-    float _timeToAchieveTargetPosition = 0f;
+    //float _timeToAchieveTargetPosition = 0f;
+    Vector2 _sideVelocityVector = Vector2.zero;
 }
