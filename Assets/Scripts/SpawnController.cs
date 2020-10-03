@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
+    [SerializeField] private GameObject playerPrefab = null;
     public int NumberObstacles = 10;
-    public int NumberPartLevel = 4;
+    public int NumberPartLevel = 50;
     public float DistanceBetweenSpawnObstacles;
     public float DistanceBetweenSpawnPartLevel;
+    public float StartDistanceFromPlayerToSpawnObstacles = 50f;
     public GameObject obstaclePrefab;
     public GameObject partLevelPrefab;
     public int MaxNumberOfImmuneBlocks = 10;
@@ -24,21 +26,25 @@ public class SpawnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Spawn();
+        SpawnPartsLevel();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void Spawn()
+    public void SpawnObstacle()
     {
         if (obstacles.Count > 0)
         {
             obstacles.Clear();
         }
+        for (int i = 0; i < NumberObstacles; i++)
+        {
+            var obstacle = Instantiate(obstaclePrefab, playerPrefab.transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnObstacles * i + StartDistanceFromPlayerToSpawnObstacles), Quaternion.identity);
+            obstacles.Add(obstacle);
+        }
+
+    }
+    public void SpawnPartsLevel()
+    {
         if (partsLevel.Count > 0)
         {
             obstacles.Clear();
@@ -48,12 +54,8 @@ public class SpawnController : MonoBehaviour
             var partLevel = Instantiate(partLevelPrefab, transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnPartLevel * i), Quaternion.identity);
             partsLevel.Add(partLevel);
         }
-        for (int i = 1; i <= NumberObstacles; i++)
-        {
-            var obstacle = Instantiate(obstaclePrefab, transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnObstacles * i), Quaternion.identity);
-            obstacles.Add(obstacle);
-        }
     }
+
     public IEnumerator MovingObstacleCoroutine(GameObject obstacle) // не забыть выключить ее когда мы проиграли
     {
         obstacles.RemoveAt(0);
