@@ -21,8 +21,6 @@ public class RocketMovement : MonoBehaviour
                 if (theRocketTarget) {
                     theRocketTarget?.onHittedByRocket?.Invoke(this);
                     theAnyCollisionFound = true;
-
-                    Debug.Log(theHit.collider);
                 }
             }
 
