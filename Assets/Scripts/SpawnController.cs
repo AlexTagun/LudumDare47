@@ -8,8 +8,8 @@ public class SpawnController : MonoBehaviour
     public int NumberPartLevel = 4;
     public float DistanceBetweenSpawnObstacles;
     public float DistanceBetweenSpawnPartLevel;
-    public Transform startPositionToSpawn;
-    public GameObject spawnPrefab;
+    public GameObject obstaclePrefab;
+    public GameObject partLevelPrefab;
     public int MaxNumberOfImmuneBlocks = 10;
     public int MinNumberOfImmuneBlocks = 0;
     [Header("Сколько времени должно пройти перед переносом препятствия вперед")]
@@ -43,12 +43,12 @@ public class SpawnController : MonoBehaviour
         }
         for (int i = 0; i < NumberPartLevel; i++)
         {
-            var partLevel = Instantiate(spawnPrefab, startPositionToSpawn.position + new Vector3(0f, 0f, DistanceBetweenSpawnPartLevel * i), Quaternion.identity);
+            var partLevel = Instantiate(partLevelPrefab, transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnPartLevel * i), Quaternion.identity);
             partsLevel.Add(partLevel);
         }
         for (int i = 1; i <= NumberObstacles; i++)
         {
-            var obstacle = Instantiate(spawnPrefab, startPositionToSpawn.position + new Vector3(0f, 0f, DistanceBetweenSpawnObstacles * i), Quaternion.identity);
+            var obstacle = Instantiate(obstaclePrefab, transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnObstacles * i), Quaternion.identity);
             obstacles.Add(obstacle);
         }
     }
