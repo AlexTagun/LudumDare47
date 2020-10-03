@@ -83,13 +83,15 @@ public class SpaceShipMovement : MonoBehaviour
         }
     }
 
-    private float step => 5f;
+    private float step => _step;
     private Vector3 frontDirection => Vector3.forward;
-    private Vector3 sideDirection => Vector3.right;
 
     private Vector2 currentSidePosition => transform.position;
 
     //Fields
+    [SerializeField]
+    private float _step = 10f;
+
     [SerializeField]
     private float _frontSpeedUnitsPerSecond = 1f;
 
