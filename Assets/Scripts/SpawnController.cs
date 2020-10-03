@@ -68,11 +68,11 @@ public class SpawnController : MonoBehaviour
 
     private void MoveObstacle (GameObject obstacle)
     {
-        obstacle.transform.position += new Vector3(0f, 0f, obstacles.Count) * DistanceBetweenSpawnObstacles;
+        obstacle.transform.position += new Vector3(0f, 0f, obstacles.Count * DistanceBetweenSpawnObstacles);
     }
 
     private void MovePartLevel(GameObject partLevel)
     {
-        partLevel.transform.position += new Vector3(0f, 0f, partsLevel.Count) * DistanceBetweenSpawnPartLevel;
+        partLevel.transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel);
     }
 }

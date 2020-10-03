@@ -17,13 +17,7 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (spawnController == null)
-        {
-            spawnController = (SpawnController)FindObjectOfType(typeof(SpawnController));
-            if (!spawnController)
-                Debug.Log("No SpawnController object could be found");
-
-        }
+        spawnController = (SpawnController)FindObjectOfType(typeof(SpawnController));
         Init();
     }
     void Update()

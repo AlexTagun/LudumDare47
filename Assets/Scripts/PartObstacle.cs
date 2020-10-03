@@ -10,7 +10,7 @@ public class PartObstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        parent = transform.parent.GetComponent<Obstacle>();
+        
     }
 
     // Update is called once per frame
@@ -21,11 +21,14 @@ public class PartObstacle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (IsCanBreak)
+        if (other.gameObject.tag == "Player")
         {
-            parent.CurrenNumberOfDestructibleBlocks--;
-            gameObject.SetActive(false);
+            if (IsCanBreak)
+            {
+                parent.CurrenNumberOfDestructibleBlocks--;
+                gameObject.SetActive(false);
+            }
+            // смерть врезающегося объекта
         }
-        // смерть врезающегося объекта
     }
 }
