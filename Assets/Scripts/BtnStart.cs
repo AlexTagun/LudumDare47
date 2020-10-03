@@ -12,6 +12,7 @@ public class BtnStart : MonoBehaviour
         spawnController = (SpawnController)FindObjectOfType(typeof(SpawnController));
         buttonStart = gameObject.GetComponent<Button>();
         buttonStart.onClick.AddListener(() => {
+            Debug.Log("Click");
             spawnController.SpawnObstacle();
         });
     }
