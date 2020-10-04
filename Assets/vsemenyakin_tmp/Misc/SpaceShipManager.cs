@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 public class SpaceShipManager : MonoBehaviour
 {
+    private NewIterationController iterationController = null;
+    private void Start()
+    {
+        iterationController = (NewIterationController)FindObjectOfType(typeof(NewIterationController));
+    }
     public void processPlayerSpaceShipDeath(SpaceShipMovement inDeadSpaceShipMovement) {
         SpaceShipActionsReplay theReplayOfDeadPlayer = inDeadSpaceShipMovement.GetComponent<SpaceShipPlayerController>().stopRecordingAndGetReplay();
         _replayForClones.Add(theReplayOfDeadPlayer);
@@ -16,13 +21,14 @@ public class SpaceShipManager : MonoBehaviour
             var theReplayController = inDeadSpaceShipMovement.GetComponent<SpaceShipActionsReplayController>();
             _replayForClones.Remove(theReplayController.replay);
         }
-
+        iterationController.activeClonesOnScene.Remove(inDeadSpaceShipMovement.gameObject);
         Destroy(inDeadSpaceShipMovement.gameObject);
     }
 
     public void spawnClones(Vector3 inCloneSpawnPoint) {
         if (_replayForClones.Count > 0) {
             var theCloneController = Instantiate(_clonePrefab);
+            iterationController.activeClonesOnScene.Add(theCloneController.gameObject);
             theCloneController.transform.position = inCloneSpawnPoint;
             theCloneController.startReplayPlaying(_replayForClones[0]);
         }

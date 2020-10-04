@@ -12,6 +12,7 @@ public class GameplayManager : MonoBehaviour {
     [SerializeField] private Button infoWindowNextButton;
     [SerializeField] private TextMeshProUGUI infoWindowText;
     [SerializeField] private GameObject spaceShip;
+    [SerializeField] private NewIterationController iterationController;
 
 
     private bool _isGameplayState;
@@ -32,6 +33,10 @@ public class GameplayManager : MonoBehaviour {
         spaceShip.SetActive(true);
         UpdateIterationIndex();
         Time.timeScale = 1;
+        if (_curIterationIndex != 1)
+        {
+            iterationController.StartNewIteration();
+        }
     }
     
     public void EndIteration() {

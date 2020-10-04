@@ -5,12 +5,14 @@ using UnityEngine;
 public class NewIterationController : MonoBehaviour
 {
     public SpawnController spawnController = null;
+    public SpaceShipManager shipManager = null;
     public List<GameObject> activeBulletsOnScene = new List<GameObject>();
     public List<GameObject> activeClonesOnScene = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
         spawnController = (SpawnController)FindObjectOfType(typeof(SpawnController));
+        shipManager = (SpaceShipManager)FindObjectOfType(typeof(SpaceShipManager));
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class NewIterationController : MonoBehaviour
             activeClonesOnScene.RemoveAt(i);
         }
         spawnController.ReplaceForNewIteration(transform.position);
+        shipManager.spawnClones(spawnController.positionSpawnClone);
 
     }
 

@@ -43,17 +43,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1e1fd0bab58fc4a878286ff55b8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 0}
   NumberObstacles: 10
-  NumberPartLevel: 4
-  DistanceBetweenSpawnObstacles: 10
+  NumberPartLevel: 50
+  DistanceBetweenSpawnObstacles: 50
   DistanceBetweenSpawnPartLevel: 10
+  StartDistanceFromPlayerToSpawnObstacles: 50
   obstaclePrefab: {fileID: 6367448386383919990, guid: 1dac0daf53978b546a503c12e161a3db,
     type: 3}
   partLevelPrefab: {fileID: 1533329143820905367, guid: b277e14ea46c0124481e2d454c86b15f,
     type: 3}
   MaxNumberOfImmuneBlocks: 20
   MinNumberOfImmuneBlocks: 10
-  DelayBeforeMovingObstacle: 5
-  DelayBeforeMovingPartLevel: 5
   partsLevel: []
   obstacles: []
+  objectsWaitingTeleport: []
