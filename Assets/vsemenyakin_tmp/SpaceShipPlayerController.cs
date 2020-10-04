@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace GameInput
 {
@@ -39,6 +40,13 @@ public class SpaceShipPlayerController : MonoBehaviour
         _moveUpPushButton.update();
         _moveDownPushButton.update();
         _shootPushButton.update();
+    }
+
+    private void Update() {
+        if (SwipeInput.swipedDown) _movement.moveDown();
+        if (SwipeInput.swipedLeft) _movement.moveLeft();
+        if (SwipeInput.swipedRight) _movement.moveRight();
+        if (SwipeInput.swipedUp) _movement.moveUp();
     }
 
     [SerializeField]
