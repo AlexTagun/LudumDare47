@@ -49,6 +49,7 @@ public class SpawnController : MonoBehaviour
             partsLevel[i].transform.position = position + new Vector3(0f, 0f, -10 + DistanceBetweenSpawnPartLevel * i);
         }
         PlayerPrefab.transform.position = position;
+        PlayerPrefab.GetComponent<SpaceShipMovement>().TPlayer();
         for (int i = 0; i < startSequenceObstacles.Count; i++)
         {
             startSequenceObstacles[i].transform.position = position + new Vector3(0f, 0f, StartDistanceFromPlayerToSpawnObstacles + DistanceBetweenSpawnObstacles * i);

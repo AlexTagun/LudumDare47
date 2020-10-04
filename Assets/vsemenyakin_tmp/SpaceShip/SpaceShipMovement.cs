@@ -118,4 +118,11 @@ public class SpaceShipMovement : MonoBehaviour
     private Vector2 _initialSidePosition = Vector2.zero;
     private Vector2Int _targetSideStepPosition = Vector2Int.zero;
     private float _timeToAchieveTargetPosition = 0f;
+
+    public void TPlayer()
+    {
+        _initialSidePosition = transform.position;
+        _targetSideStepPosition = Vector2Int.zero;
+        _timeToAchieveTargetPosition = 0f;
+    }
 }
