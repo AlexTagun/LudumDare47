@@ -25,6 +25,7 @@ public class SpawnController : MonoBehaviour
     public GameObject NextNearestObstacles => obstacles[0];
 
     public List<GameObject> objectsWaitingTeleport = new List<GameObject>();
+    public List<GameObject> startSequenceObstacles = new List<GameObject>();
 
     public Vector3 positionSpawnClone => new Vector3(0f, 0f, obstacles[obstacles.Count - 1].transform.position.z + StartDistanceFromPlayerToSpawnObstacles);
     // Start is called before the first frame update
@@ -48,7 +49,7 @@ public class SpawnController : MonoBehaviour
             partsLevel[i].transform.position = position + new Vector3(0f, 0f, -10 + DistanceBetweenSpawnPartLevel * i);
         }
         PlayerPrefab.transform.position = position;
-        for (int i = 0; i < obstacles.Count; i++)
+        for (int i = 0; i < startSequenceObstacles.Count; i++)
         {
             obstacles[i].transform.position = position + new Vector3(0f, 0f, StartDistanceFromPlayerToSpawnObstacles + DistanceBetweenSpawnObstacles * i);
         }
@@ -65,6 +66,7 @@ public class SpawnController : MonoBehaviour
         {
             var obstacle = Instantiate(obstaclePrefab, PlayerPrefab.transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnObstacles * i + StartDistanceFromPlayerToSpawnObstacles), Quaternion.identity);
             obstacles.Add(obstacle);
+            startSequenceObstacles.Add(obstacle);
         }
 
     }

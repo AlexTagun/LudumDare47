@@ -12,7 +12,7 @@ public class RocketSpawner : MonoBehaviour
         var theNewRocket = Instantiate(_rocketPrefab);
         theNewRocket.transform.position = _spawnPoint.position;
         theNewRocket.setShooterSpaceShip(inShooterSpaceShipMovement);
-        //iterationController.activeBulletsOnScene.Add(theNewRocket.gameObject);
+        iterationController.activeBulletsOnScene.Add(theNewRocket.gameObject);
     }
 
 
