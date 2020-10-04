@@ -21,7 +21,10 @@ public class NewIterationController : MonoBehaviour
     {
         for (int i = 0; i < activeBulletsOnScene.Count; i++)
         {
-            Destroy(activeBulletsOnScene[i]);
+            if(activeBulletsOnScene[i] != null)
+            {
+                Destroy(activeBulletsOnScene[i]);
+            }
             activeBulletsOnScene.RemoveAt(i);
         }
         for (int i = 0; i < activeClonesOnScene.Count; i++)
