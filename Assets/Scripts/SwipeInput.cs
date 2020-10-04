@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /*
  * Swipe Input script for Unity by @fonserbc, free to use wherever
@@ -22,6 +23,8 @@ public class SwipeInput : MonoBehaviour {
 	public static bool swipedLeft = false;
 	public static bool swipedUp = false;
 	public static bool swipedDown = false;
+	public static bool tap = false;
+	public static bool EnableTap = false;
 	
 	
 	public bool debugWithArrowKeys = true;
@@ -35,6 +38,7 @@ public class SwipeInput : MonoBehaviour {
 		swipedLeft = false;
 		swipedUp = false;
 		swipedDown = false;
+		tap = false;
 
 		if(Input.touches.Length > 0)
 		{
@@ -53,8 +57,11 @@ public class SwipeInput : MonoBehaviour {
 
 				Vector2 swipe = new Vector2(endPos.x - startPos.x, endPos.y - startPos.y);
 
-				if (swipe.magnitude < MIN_SWIPE_DISTANCE) // Too short swipe
+				if (swipe.magnitude < MIN_SWIPE_DISTANCE) {
+					// Too short swipe
+					if (EnableTap) tap = true;
 					return;
+				}
 
 				if (Mathf.Abs (swipe.x) > Mathf.Abs (swipe.y)) { // Horizontal swipe
 					if (swipe.x > 0) {

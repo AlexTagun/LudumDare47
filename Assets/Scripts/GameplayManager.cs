@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,6 +52,11 @@ public class GameplayManager : MonoBehaviour {
         // spaceShip.SetActive(true);
         UpdateIterationIndex();
         Time.timeScale = 1;
+        SwipeInput.EnableTap = false;
+        var temp = 1;
+        DOTween.To(() => 1, x => temp = x, 1, 2).OnComplete(() => {
+            SwipeInput.EnableTap = true;
+        });
         if (_curIterationIndex != 1)
         {
             iterationController.StartNewIteration();
