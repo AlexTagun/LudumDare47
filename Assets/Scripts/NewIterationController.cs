@@ -14,10 +14,6 @@ public class NewIterationController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void StartNewIteration()
     {
@@ -34,4 +30,5 @@ public class NewIterationController : MonoBehaviour
         spawnController.ReplaceForNewIteration(transform.position);
 
     }
+
 }

@@ -22,7 +22,7 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
-        // MenuPanel.SetActive(true);
+        MenuPanel.SetActive(true);
         WarningPanel.SetActive(true);
         IterationPanel.gameObject.SetActive(true);
         IterationPanel.DOFade(0, 0);
