@@ -13,6 +13,8 @@ public class GameplayManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI infoWindowText;
     [SerializeField] private GameObject spaceShip;
     [SerializeField] private NewIterationController iterationController;
+    [SerializeField] private TextMeshProUGUI bulletCountText;
+    [SerializeField] private Button bulletButton;
 
 
     private bool _isGameplayState;
@@ -21,12 +23,21 @@ public class GameplayManager : MonoBehaviour {
     private float _totalPoints = 0;
     private float _curIterationIndex = 0;
     private int _curLevel = 1;
+    private int _curBulletCount = 0;
 
     private void Awake() {
         infoWindowNextButton.onClick.AddListener(StartIteration);
+        bulletButton.onClick.AddListener((() => {
+            _curBulletCount--;
+            bulletCountText.text = _curBulletCount.ToString();
+            if (_curBulletCount == 0) bulletButton.interactable = false;
+        }));
     }
 
     public void StartIteration() {
+        bulletButton.interactable = true;
+        _curBulletCount = ConfigManager.Data.StartBulletCount;
+        bulletCountText.text = _curBulletCount.ToString();
         _isGameplayState = true;
         _curIterationIndex++;
         infoWindow.SetActive(false);

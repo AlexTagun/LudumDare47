@@ -11,4 +11,5 @@ public class Config : ScriptableObject {
     public float IntervalBetweenSpeedIncrease;
     public float CoefficientSpeedIncrease;
     public int[] LevelPointCost;
+    public int StartBulletCount;
 }
