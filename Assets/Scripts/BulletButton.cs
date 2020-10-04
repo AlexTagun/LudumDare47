@@ -9,12 +9,12 @@ public class BulletButton : MonoBehaviour
     private Button button = null;
     void Start()
     {
-        button = gameObject.GetComponent<Button>();
-        shipPlayerController = (SpaceShipPlayerController)FindObjectOfType(typeof(SpaceShipPlayerController));
-        button.onClick.AddListener(() =>
-        {
-            shipPlayerController.RocketSpawner.spawnRocket(shipPlayerController.GetComponent<SpaceShipMovement>());
-        });
+        // button = gameObject.GetComponent<Button>();
+        // shipPlayerController = (SpaceShipPlayerController)FindObjectOfType(typeof(SpaceShipPlayerController));
+        // button.onClick.AddListener(() =>
+        // {
+        //     shipPlayerController.RocketSpawner.spawnRocket(shipPlayerController.GetComponent<SpaceShipMovement>());
+        // });
     }
 
 

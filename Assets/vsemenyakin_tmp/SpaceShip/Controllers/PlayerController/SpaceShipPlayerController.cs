@@ -33,6 +33,7 @@ public class SpaceShipPlayerController : SpaceShipController
         if (SwipeInput.swipedLeft) moveLeft();
         if (SwipeInput.swipedRight) moveRight();
         if (SwipeInput.swipedUp) moveUp();
+        if(Input.GetMouseButtonDown(0)) spawnRocket();
     }
 
     private GameInput.PushButton[] _pushButtons = null;

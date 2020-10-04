@@ -15,7 +15,6 @@ public class GameplayManager : MonoBehaviour {
     [SerializeField] private GameObject spaceShip;
     [SerializeField] private NewIterationController iterationController;
     [SerializeField] private TextMeshProUGUI bulletCountText;
-    [SerializeField] private Button bulletButton;
 
 
     private bool _isGameplayState;
@@ -26,13 +25,16 @@ public class GameplayManager : MonoBehaviour {
     private int _curLevel = 0;
     private int _curBulletCount = 0;
 
+    public int CurBulletCount {
+        get => _curBulletCount;
+        set {
+            _curBulletCount = value; 
+            bulletCountText.text = _curBulletCount.ToString();
+        }
+    }
     private void Awake() {
         infoWindowNextButton.onClick.AddListener(StartIteration);
-        bulletButton.onClick.AddListener((() => {
-            _curBulletCount--;
-            bulletCountText.text = _curBulletCount.ToString();
-            if (_curBulletCount == 0) bulletButton.interactable = false;
-        }));
+
         infoWindowUpgradeButton.onClick.AddListener((() => {
             _totalPoints -= ConfigManager.Data.LevelPointCost[_curLevel];
             _curLevel++;
@@ -41,7 +43,6 @@ public class GameplayManager : MonoBehaviour {
     }
 
     public void StartIteration() {
-        bulletButton.interactable = true;
         _curBulletCount = ConfigManager.Data.StartBulletCount + _curLevel;
         bulletCountText.text = _curBulletCount.ToString();
         _isGameplayState = true;
