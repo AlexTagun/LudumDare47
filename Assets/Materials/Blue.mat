@@ -22,4 +22,4 @@ Material:
     m_TexEnvs: []
     m_Floats: []
     m_Colors:
-    - Color_E905AB12: {r: 0.4714095, g: 0.7515606, b: 3.2156863, a: 0}
+    - Color_E905AB12: {r: 0, g: 0.17953062, b: 1, a: 0}
