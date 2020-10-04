@@ -108,7 +108,7 @@ public class SpawnController : MonoBehaviour
 
     public void MovePartLevel(GameObject partLevel)
     {
-        if (partLevel.Equals(obstacles[1]))
+        if (partLevel.Equals(partsLevel[1]))
         {
             var firstPartLevel = partsLevel[0];
             partsLevel.RemoveAt(0);
