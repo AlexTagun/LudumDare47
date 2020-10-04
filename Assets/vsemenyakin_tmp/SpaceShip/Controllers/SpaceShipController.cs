@@ -9,6 +9,13 @@ public class SpaceShipController : MonoBehaviour
         _scanner = inScanner;
     }
 
+    private void Start() {
+        if (_movement.isInverted()) {
+            _rocketSpawner.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            _rocketSpawner.transform.localPosition = -_rocketSpawner.transform.localPosition;
+        }
+    }
+
     protected void moveRight() {
         _movement.moveRight();
         _scanner?.scanMoveRight();

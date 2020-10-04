@@ -6,6 +6,10 @@ public class RocketMovement : MonoBehaviour
         _shooterSpaceShipMovement = inSpaceShip;
     }
 
+    public void makeInverted() {
+        _speed = -_speed;
+    }
+
     public SpaceShipMovement shooterSpaceShipMovement => _shooterSpaceShipMovement;
 
     private void Awake() {

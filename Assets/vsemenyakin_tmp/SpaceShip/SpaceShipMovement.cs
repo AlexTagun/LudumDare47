@@ -2,12 +2,20 @@
 
 public class SpaceShipMovement : MonoBehaviour
 {
+    public void makeHackStop() {
+        _frontSpeedUnitsPerSecond = 0f;
+    }
+
+    public bool isInverted() {
+        return (_frontSpeedUnitsPerSecond < 0);
+    }
+
     public void moveRight() {
-        changeTargetSidePosition(new Vector2Int(1, 0));
+        changeTargetSidePosition(new Vector2Int(isInverted() ? -1 : 1, 0));
     }
 
     public void moveLeft() {
-        changeTargetSidePosition(new Vector2Int(-1, 0));
+        changeTargetSidePosition(new Vector2Int(isInverted() ? 1 : -1, 0));
     }
 
     public void moveUp() {
@@ -60,12 +68,12 @@ public class SpaceShipMovement : MonoBehaviour
     private void updateRotationFromSpeed() {
         Vector2 theSideVelocity = computeFrameSideVelocity();
 
-        float theHackFrontVelocityRotationCorrection = _frontSpeedUnitsPerSecond > 0 ? 0f : 180f;
+        float theHackFrontVelocityRotationCorrection = isInverted() ? 180f : 0f;
 
         float theDegreesPerSpeed = 50f;
         _visualTransform.transform.rotation = Quaternion.Euler(
-            -theSideVelocity.y * theDegreesPerSpeed + theHackFrontVelocityRotationCorrection,
-            theSideVelocity.x * theDegreesPerSpeed,
+            -theSideVelocity.y * theDegreesPerSpeed,
+            theSideVelocity.x * theDegreesPerSpeed * (isInverted() ? -1f : 1f) + theHackFrontVelocityRotationCorrection,
             0f);
     }
 

@@ -10,11 +10,16 @@ public class RocketSpawner : MonoBehaviour
 
     public void spawnRocket(SpaceShipMovement inShooterSpaceShipMovement) {
         var theNewRocket = Instantiate(_rocketPrefab);
+        if (isInverted())
+            theNewRocket.makeInverted();
         theNewRocket.transform.position = _spawnPoint.position;
         theNewRocket.setShooterSpaceShip(inShooterSpaceShipMovement);
         iterationController.activeBulletsOnScene.Add(theNewRocket.gameObject);
     }
 
+    private bool isInverted() {
+        return (transform.rotation.eulerAngles.y != 0f);
+    }
 
     [SerializeField]
     private Transform _spawnPoint = null;
