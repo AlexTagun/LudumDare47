@@ -14,19 +14,29 @@ public class SpawnController : MonoBehaviour
     public GameObject partLevelPrefab;
     public int MaxNumberOfImmuneBlocks = 10;
     public int MinNumberOfImmuneBlocks = 0;
-    [Header("Сколько времени должно пройти перед переносом препятствия вперед")]
-    public float DelayBeforeMovingObstacle;
+    /*[Header("Сколько времени должно пройти перед переносом препятствия вперед")]
+    //public float DelayBeforeMovingObstacle;
     [Header("Сколько времени должно пройти перед переносом трубки вперед")]
-    public float DelayBeforeMovingPartLevel;
+    //public float DelayBeforeMovingPartLevel;*/
 
+    [Header("Не заполнять!")]
     public List<GameObject> partsLevel = new List<GameObject>();
     public List<GameObject> obstacles = new List<GameObject>();
-
     public GameObject NextNearestObstacles => obstacles[0];
+
+    public List<GameObject> objectsWaitingTeleport = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
         SpawnPartsLevel();
+    }
+    public void AddInListObjectsWaitingTeleport(GameObject objectWaitingTeleport)
+    {
+        objectsWaitingTeleport.Add(objectWaitingTeleport);
+    }
+    public void RemoveFromListObjectsWaitingTeleport(GameObject objectWaitingTeleport)
+    {
+        objectsWaitingTeleport.Remove(objectWaitingTeleport);
     }
 
 
@@ -56,7 +66,7 @@ public class SpawnController : MonoBehaviour
         }
     }
 
-    public IEnumerator MovingObstacleCoroutine(GameObject obstacle) // не забыть выключить ее когда мы проиграли
+    /*public IEnumerator MovingObstacleCoroutine(GameObject obstacle) // не забыть выключить ее когда мы проиграли
     {
         obstacles.RemoveAt(0);
         obstacles.Add(obstacle);
@@ -70,15 +80,30 @@ public class SpawnController : MonoBehaviour
         yield return new WaitForSeconds(DelayBeforeMovingPartLevel);
 
         MovePartLevel(partLevel);
-    }
+    }*/
 
-    private void MoveObstacle (GameObject obstacle)
+    public void MoveObstacle (GameObject obstacle)
     {
-        obstacle.transform.position += new Vector3(0f, 0f, obstacles.Count * DistanceBetweenSpawnObstacles);
+        if(obstacle.Equals(obstacles[1]))
+        {
+            var firstObstacles = obstacles[0];
+            obstacles.RemoveAt(0);
+            obstacles.Add(firstObstacles);
+            firstObstacles.transform.position += new Vector3(0f, 0f, obstacles.Count * DistanceBetweenSpawnObstacles);
+        }
     }
 
-    private void MovePartLevel(GameObject partLevel)
+    public void MovePartLevel(GameObject partLevel)
     {
         partLevel.transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel);
     }
+
+    public void MoveObjectsWaitingTeleport()
+    {
+        foreach (var item in objectsWaitingTeleport)
+        {
+            item.transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel);
+        }
+    }
+
 }

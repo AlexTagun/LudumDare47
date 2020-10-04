@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerObstacle : MonoBehaviour
 {
     public SpawnController spawnController = null;
+    private float distanceToParent;
     private void Start()
     {
         spawnController = (SpawnController)FindObjectOfType(typeof(SpawnController));
@@ -13,7 +14,9 @@ public class TriggerObstacle : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            StartCoroutine(spawnController.MovingObstacleCoroutine(transform.parent.gameObject));
+            distanceToParent = transform.parent.position.z - other.gameObject.transform.position.z;
+            spawnController.MoveObstacle(transform.parent.gameObject);
+            spawnController.MoveObjectsWaitingTeleport();
         }
     }
 }

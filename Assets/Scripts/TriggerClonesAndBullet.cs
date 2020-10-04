@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerPartLevel : MonoBehaviour
+public class TriggerClonesAndBullet : MonoBehaviour
 {
     public SpawnController spawnController = null;
 
-    private void Start()
+    void Start()
     {
         spawnController = (SpawnController)FindObjectOfType(typeof(SpawnController));
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.GetComponent<PortableObject>())
         {
-            spawnController.MovePartLevel(transform.parent.gameObject);
+            spawnController.AddInListObjectsWaitingTeleport(other.gameObject);
         }
     }
 }

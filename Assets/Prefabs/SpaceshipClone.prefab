@@ -129,6 +129,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 7912203670280837862}
   _rocketSpawner: {fileID: 1700119295397922730}
+--- !u!114 &9180447128727834215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912203670280837859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d7fec51a945dd4196f32b5a9f14106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &893395965151776737
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912203670280837859}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2857545256363159093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,6 +223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpaceshipClone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497905350236111200, guid: a9441b558de23e14ab2f12ce020aa8a5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 889885046711035023, guid: a9441b558de23e14ab2f12ce020aa8a5, type: 3}
