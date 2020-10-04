@@ -23,16 +23,16 @@ public class SpaceShipMovement : MonoBehaviour
     }
 
     private void setupInitialStepRelatedState() {
-        _targetSidePosition = transform.position;
+        _initialSidePosition = transform.position;
     }
 
     private void changeTargetSidePosition(Vector2Int inDeltaSideStep) {
-        Vector2 theDeltaSidePosition = new Vector2(
-            inDeltaSideStep.x * step,
-            inDeltaSideStep.y * step);
-        _targetSidePosition += theDeltaSidePosition;
+        _targetSideStepPosition.x = Mathf.Clamp(_targetSideStepPosition.x + inDeltaSideStep.x,
+            _limits.leftLimits, _limits.rightLimits);
+        _targetSideStepPosition.y = Mathf.Clamp(_targetSideStepPosition.y + inDeltaSideStep.y,
+            _limits.downLimits, _limits.upLimits);
 
-        Vector2 theDeltaSideVector = _targetSidePosition - currentSidePosition;
+        Vector2 theDeltaSideVector = targetSidePosition - currentSidePosition;
         float theSideStepDistance = theDeltaSideVector.magnitude / step;
 
         _timeToAchieveTargetPosition = theSideStepDistance / _sideStepsPerSecondVelocity;
@@ -68,7 +68,7 @@ public class SpaceShipMovement : MonoBehaviour
     }
 
     private Vector2 computeFrameSideVelocity() {
-        Vector2 theDeltaSideVector = _targetSidePosition - currentSidePosition;
+        Vector2 theDeltaSideVector = targetSidePosition - currentSidePosition;
         float theDeltaSideVectorMagnitude = theDeltaSideVector.magnitude;
         if (Mathf.Abs(theDeltaSideVectorMagnitude) < 0.1f || 0f == _timeToAchieveTargetPosition)
             return Vector2.zero;
@@ -87,6 +87,7 @@ public class SpaceShipMovement : MonoBehaviour
     private Vector3 frontDirection => Vector3.forward;
 
     private Vector2 currentSidePosition => transform.position;
+    private Vector2 targetSidePosition => _initialSidePosition + new Vector2(_targetSideStepPosition.x * _step, _targetSideStepPosition.y * _step);
 
     //Fields
     [SerializeField]
@@ -98,9 +99,21 @@ public class SpaceShipMovement : MonoBehaviour
     [SerializeField]
     private float _sideStepsPerSecondVelocity = 1f;
 
+    [System.Serializable]
+    struct MovementStepLimits {
+        public int leftLimits;
+        public int rightLimits;
+        public int downLimits;
+        public int upLimits;
+    };
+
+    [SerializeField]
+    private MovementStepLimits _limits;
+
     [SerializeField]
     private Transform _visualTransform = null;
 
-    private Vector2 _targetSidePosition = Vector2.zero;
+    private Vector2 _initialSidePosition = Vector2.zero;
+    private Vector2Int _targetSideStepPosition = Vector2Int.zero;
     private float _timeToAchieveTargetPosition = 0f;
 }

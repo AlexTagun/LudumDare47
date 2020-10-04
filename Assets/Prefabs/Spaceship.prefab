@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071e76ceafa029840ab263b2c550ee8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iterationController: {fileID: 0}
   _spawnPoint: {fileID: 3386460693979907232}
   _rocketPrefab: {fileID: 2922842438159476095, guid: 11ee858c0083445459927a248d71eb6b,
     type: 3}
@@ -238,6 +239,11 @@ MonoBehaviour:
   _step: 5
   _frontSpeedUnitsPerSecond: 10
   _sideStepsPerSecondVelocity: 5
+  _limits:
+    leftLimits: -1
+    rightLimits: 1
+    downLimits: -1
+    upLimits: 1
   _visualTransform: {fileID: 5360903223329549735}
 --- !u!114 &5360903223274206416
 MonoBehaviour:
