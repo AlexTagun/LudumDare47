@@ -1013,6 +1013,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2624491301617205807}
   - component: {fileID: 4842470991015560575}
+  - component: {fileID: 4542816811108834074}
+  - component: {fileID: 4794502211686787941}
   m_Layer: 5
   m_Name: warning_window
   m_TagString: Untagged
@@ -1052,6 +1054,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54347fb60a5fd7646b774a70914a8674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &4542816811108834074
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399513589407938371}
+  m_CullTransparentMesh: 0
+--- !u!114 &4794502211686787941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399513589407938371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.007843138, g: 0.003921569, b: 0.16862746, a: 0.7529412}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3587043302842692615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,6 +2305,9 @@ MonoBehaviour:
   GameplayPanel: {fileID: 2227134383064752766}
   TimeShowIterationPanel: 2
   TimeShowAndHideInteractionPanen: 1
+  WarningPanel: {fileID: 2399513589407938371}
+  WarningContinueButton: {fileID: 2476377207131062856}
+  WarningBwButton: {fileID: 4926904802250987577}
 --- !u!1 &5505395005272698068
 GameObject:
   m_ObjectHideFlags: 0

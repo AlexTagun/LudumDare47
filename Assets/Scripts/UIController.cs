@@ -2,27 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     public GameObject MenuPanel;
+    
     public CanvasGroup IterationPanel;
     public GameObject GameplayPanel;
     public float TimeShowIterationPanel;
     public float TimeShowAndHideInteractionPanen = 1f;
-    // Start is called before the first frame update
-    void Start()
+    
+    public GameObject WarningPanel;
+    public Button WarningContinueButton;
+    public Button WarningBwButton;
+    public Volume Volume;
+
+    private void Start()
     {
-        MenuPanel.SetActive(true);
+        // MenuPanel.SetActive(true);
+        WarningPanel.SetActive(true);
         IterationPanel.gameObject.SetActive(true);
         IterationPanel.DOFade(0, 0);
         GameplayPanel.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
+        WarningContinueButton.onClick.AddListener(() => {
+            WarningPanel.SetActive(false);
+            MenuPanel.SetActive(true);
+        });
+        WarningBwButton.onClick.AddListener(() => {
+            Debug.Log("Меняем тему");
+            ColorAdjustments colorAdjustments;
+            if(Volume.profile.TryGet<ColorAdjustments>( out colorAdjustments ) )
+            {
+                colorAdjustments.active = true;
+            }
+            WarningPanel.SetActive(false);
+            MenuPanel.SetActive(true);
+        });
     }
 
     public IEnumerator ShowIterationPanel()
