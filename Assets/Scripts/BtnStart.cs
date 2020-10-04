@@ -8,6 +8,7 @@ public class BtnStart : MonoBehaviour
     private UIController UIController = null;
     private Button buttonStart = null;
     private SpawnController spawnController = null;
+    [SerializeField] private GameplayManager _gameplayManager;
     private void Start()
     {
         spawnController = (SpawnController)FindObjectOfType(typeof(SpawnController));
@@ -18,6 +19,7 @@ public class BtnStart : MonoBehaviour
             UIController.StartCoroutine(UIController.ShowIterationPanel());
             UIController.GameplayPanel.SetActive(true);
             UIController.MenuPanel.SetActive(false);
+            _gameplayManager.StartIteration();
         });
     }
 

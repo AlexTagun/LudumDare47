@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fe2a617bbad33449579adf01964505, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  PointsPerSecond: 0
+  PointsPerSecond: 10
+  PointsForDestroyingObstacle: 0
