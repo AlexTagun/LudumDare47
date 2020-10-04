@@ -46,11 +46,11 @@ public class Obstacle : MonoBehaviour
             var element = array[i];
             if (element < CurrenNumberOfDestructibleBlocks)
             {
-                MakeBlockIsDestructible(partsObstacle[i]);
+                MakeBlockIsIndestructible(partsObstacle[i]);
             }
             else
             {
-                MakeBlockIsIndestructible(partsObstacle[i]);
+                MakeBlockIsDestructible(partsObstacle[i]);
             }
         }
     }
