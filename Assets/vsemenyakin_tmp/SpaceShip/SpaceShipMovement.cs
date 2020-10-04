@@ -59,10 +59,12 @@ public class SpaceShipMovement : MonoBehaviour
 
     private void updateRotationFromSpeed() {
         Vector2 theSideVelocity = computeFrameSideVelocity();
-        
+
+        float theHackFrontVelocityRotationCorrection = _frontSpeedUnitsPerSecond > 0 ? 0f : 180f;
+
         float theDegreesPerSpeed = 50f;
         _visualTransform.transform.rotation = Quaternion.Euler(
-            -theSideVelocity.y * theDegreesPerSpeed,
+            -theSideVelocity.y * theDegreesPerSpeed + theHackFrontVelocityRotationCorrection,
             theSideVelocity.x * theDegreesPerSpeed,
             0f);
     }

@@ -2,6 +2,12 @@
 
 public class RocketMovement : MonoBehaviour
 {
+    public void setShooterSpaceShip(SpaceShipMovement inSpaceShip) {
+        _shooterSpaceShipMovement = inSpaceShip;
+    }
+
+    public SpaceShipMovement shooterSpaceShipMovement => _shooterSpaceShipMovement;
+
     private void Awake() {
         _rocketTarget.onHittedByRocket = (RocketMovement unused) => performDestroy();
     }
@@ -55,4 +61,6 @@ public class RocketMovement : MonoBehaviour
 
     [SerializeField]
     private RocketTarget _rocketTarget = null;
+
+    private SpaceShipMovement _shooterSpaceShipMovement = null;
 }

@@ -4,14 +4,15 @@ public class RocketSpawner : MonoBehaviour
 {
     [SerializeField] private NewIterationController iterationController;
 
-    private void Start()
-    {
+    private void Start() {
         iterationController = (NewIterationController)FindObjectOfType(typeof(NewIterationController));
     }
-    public void spawnRocket() {
+
+    public void spawnRocket(SpaceShipMovement inShooterSpaceShipMovement) {
         var theNewRocket = Instantiate(_rocketPrefab);
         theNewRocket.transform.position = _spawnPoint.position;
-        iterationController.activeBulletsOnScene.Add(theNewRocket.gameObject);
+        theNewRocket.setShooterSpaceShip(inShooterSpaceShipMovement);
+        //iterationController.activeBulletsOnScene.Add(theNewRocket.gameObject);
     }
 
 

@@ -8,6 +8,8 @@ public class SpaceShipActionsReplayController : SpaceShipController
         _replayEnumerator = inReplay.getEnumerator();
     }
 
+    public SpaceShipActionsReplay replay => _replay;
+
     private void FixedUpdate() {
         _replayEnumerator.moveProcessingPassedActions(currentPlayingTime, performActionReplay);
     }

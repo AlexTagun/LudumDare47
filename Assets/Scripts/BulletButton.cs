@@ -13,7 +13,7 @@ public class BulletButton : MonoBehaviour
         shipPlayerController = (SpaceShipPlayerController)FindObjectOfType(typeof(SpaceShipPlayerController));
         button.onClick.AddListener(() =>
         {
-            shipPlayerController.RocketSpawner.spawnRocket();
+            shipPlayerController.RocketSpawner.spawnRocket(shipPlayerController.GetComponent<SpaceShipMovement>());
         });
     }
 

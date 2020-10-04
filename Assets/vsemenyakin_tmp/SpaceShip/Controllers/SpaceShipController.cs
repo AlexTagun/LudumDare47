@@ -30,7 +30,7 @@ public class SpaceShipController : MonoBehaviour
     }
 
     protected void spawnRocket() {
-        _rocketSpawner.spawnRocket();
+        _rocketSpawner.spawnRocket(_movement);
         _scanner?.scanSpawnRocket();
     }
 
