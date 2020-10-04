@@ -608,7 +608,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 4.9e-44, z: 2.5872e-41, w: 1.04e-43}
+  m_BoundingSphereOverride: {x: 0, y: 1.0345e-40, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1138,6 +1138,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1131859622 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4994315218224095801, guid: 964b6fccfecf8f94eac3d0391959b505,
+    type: 3}
+  m_PrefabInstance: {fileID: 668639720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1197311397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1363,7 @@ MonoBehaviour:
   iterationText: {fileID: 926694776}
   infoWindow: {fileID: 668639723}
   infoWindowNextButton: {fileID: 668639722}
+  infoWindowUpgradeButton: {fileID: 1131859622}
   infoWindowText: {fileID: 668639721}
   spaceShip: {fileID: 2016700017}
   iterationController: {fileID: 642582929}

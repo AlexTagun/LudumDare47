@@ -10,6 +10,7 @@ public class GameplayManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI iterationText;
     [SerializeField] private GameObject infoWindow;
     [SerializeField] private Button infoWindowNextButton;
+    [SerializeField] private Button infoWindowUpgradeButton;
     [SerializeField] private TextMeshProUGUI infoWindowText;
     [SerializeField] private GameObject spaceShip;
     [SerializeField] private NewIterationController iterationController;
@@ -22,7 +23,7 @@ public class GameplayManager : MonoBehaviour {
     private float _curPoints = 0;
     private float _totalPoints = 0;
     private float _curIterationIndex = 0;
-    private int _curLevel = 1;
+    private int _curLevel = 0;
     private int _curBulletCount = 0;
 
     private void Awake() {
@@ -32,11 +33,16 @@ public class GameplayManager : MonoBehaviour {
             bulletCountText.text = _curBulletCount.ToString();
             if (_curBulletCount == 0) bulletButton.interactable = false;
         }));
+        infoWindowUpgradeButton.onClick.AddListener((() => {
+            _totalPoints -= ConfigManager.Data.LevelPointCost[_curLevel];
+            _curLevel++;
+            UpdateInfoWindow();
+        }));
     }
 
     public void StartIteration() {
         bulletButton.interactable = true;
-        _curBulletCount = ConfigManager.Data.StartBulletCount;
+        _curBulletCount = ConfigManager.Data.StartBulletCount + _curLevel;
         bulletCountText.text = _curBulletCount.ToString();
         _isGameplayState = true;
         _curIterationIndex++;
@@ -75,11 +81,12 @@ public class GameplayManager : MonoBehaviour {
 
     private void UpdateInfoWindow() {
         var upgradeAvailable = _totalPoints >= ConfigManager.Data.LevelPointCost[_curLevel] ? "Yes" : "No";
+        infoWindowUpgradeButton.gameObject.SetActive(_totalPoints >= ConfigManager.Data.LevelPointCost[_curLevel]);
         infoWindowText.text = $"POINTS EARNED: {Mathf.RoundToInt(_curPoints).ToString()}\n" +
                               $"TOTAL POINTS: {Mathf.RoundToInt(_totalPoints).ToString()}\n" +
                               $"UPGRADE AVAILABLE: {upgradeAvailable}\n" +
-                              $"NEXT UPGRADE: {ConfigManager.Data.LevelPointCost[_curLevel]}\n" +
+                              $"NEXT UPGRADE: {ConfigManager.Data.LevelPointCost[_curLevel]}\n"/* +
                               $"CLONES DESTROYED: 0\n" +
-                              $"CLONES LEFT: 0\n";
+                              $"CLONES LEFT: 0\n"*/;
     }
 }
