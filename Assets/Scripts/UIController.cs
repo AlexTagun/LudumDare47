@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
 {
     public GameObject MenuPanel;
     
-    public CanvasGroup IterationPanel;
+    /*public CanvasGroup IterationPanel;*/
     public GameObject GameplayPanel;
     public float TimeShowIterationPanel;
     public float TimeShowAndHideInteractionPanen = 1f;
@@ -24,8 +24,8 @@ public class UIController : MonoBehaviour
     {
         MenuPanel.SetActive(false);
         WarningPanel.SetActive(true);
-        IterationPanel.gameObject.SetActive(true);
-        IterationPanel.DOFade(0, 0);
+        /*IterationPanel.gameObject.SetActive(true);
+        IterationPanel.DOFade(0, 0);*/
         GameplayPanel.SetActive(false);
         
         WarningContinueButton.onClick.AddListener(() => {
@@ -44,10 +44,10 @@ public class UIController : MonoBehaviour
         });
     }
 
-    public IEnumerator ShowIterationPanel()
+    /*public IEnumerator ShowIterationPanel()
     {
         IterationPanel.DOFade(1, TimeShowAndHideInteractionPanen);
         yield return new WaitForSeconds(TimeShowIterationPanel + TimeShowAndHideInteractionPanen);
         IterationPanel.DOFade(0, TimeShowAndHideInteractionPanen);
-    }
+    }*/
 }

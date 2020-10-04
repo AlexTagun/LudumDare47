@@ -1368,7 +1368,6 @@ MonoBehaviour:
   spaceShip: {fileID: 2016700017}
   iterationController: {fileID: 642582929}
   bulletCountText: {fileID: 1687925722}
-  bulletButton: {fileID: 1708419880}
 --- !u!4 &1495305879
 Transform:
   m_ObjectHideFlags: 0
@@ -1415,11 +1414,6 @@ PrefabInstance:
       propertyPath: PlayerPrefab
       value: 
       objectReference: {fileID: 2016700017}
-    - target: {fileID: 4241264402710982125, guid: 98a3c37bd82922b4a894eaf4ac7387e1,
-        type: 3}
-      propertyPath: NumberPartLevel
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 4241264402710982126, guid: 98a3c37bd82922b4a894eaf4ac7387e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1606,18 +1600,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1708419880 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1502268106964248867, guid: 964b6fccfecf8f94eac3d0391959b505,
-    type: 3}
-  m_PrefabInstance: {fileID: 668639720}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1714854674

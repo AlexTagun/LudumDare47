@@ -3431,7 +3431,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuPanel: {fileID: 5951104343843499320}
-  IterationPanel: {fileID: 3396192009094472415}
   GameplayPanel: {fileID: 2227134383064752766}
   TimeShowIterationPanel: 2
   TimeShowAndHideInteractionPanen: 1

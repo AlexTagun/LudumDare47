@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 0}
   NumberObstacles: 10
-  NumberPartLevel: 50
+  NumberPartLevel: 20
   DistanceBetweenSpawnObstacles: 50
   DistanceBetweenSpawnPartLevel: 10
   StartDistanceFromPlayerToSpawnObstacles: 50
@@ -53,8 +53,9 @@ MonoBehaviour:
     type: 3}
   partLevelPrefab: {fileID: 1533329143820905367, guid: b277e14ea46c0124481e2d454c86b15f,
     type: 3}
-  MaxNumberOfImmuneBlocks: 20
-  MinNumberOfImmuneBlocks: 10
+  MaxNumberOfImmuneBlocks: 10
+  MinNumberOfImmuneBlocks: 5
   partsLevel: []
   obstacles: []
   objectsWaitingTeleport: []
+  startSequenceObstacles: []
