@@ -11,8 +11,10 @@ public class SpaceShipDeathTracker : MonoBehaviour
         //TODO: Before death actions:
         //1. If player dead - register it's replay
         //2. If clone dead - check dead cause and remove clone replay if dead because of player rocket
-
-        Destroy(_rootSpaceShipGameObjectToDestroyOnDeath);
+        _gameplayManager.EndIteration();
+        _rootSpaceShipGameObjectToDestroyOnDeath.SetActive(false);
+        
+        // Destroy(_rootSpaceShipGameObjectToDestroyOnDeath);
     }
 
     [SerializeField]
@@ -26,4 +28,7 @@ public class SpaceShipDeathTracker : MonoBehaviour
 
     [SerializeField]
     private GameObject _rootSpaceShipGameObjectToDestroyOnDeath;
+    
+    [SerializeField]
+    private GameplayManager _gameplayManager;
 }
