@@ -1328,13 +1328,14 @@ GameObject:
   - component: {fileID: 6433463350153074092}
   - component: {fileID: 4083085433252567626}
   - component: {fileID: 2252614467260916125}
+  - component: {fileID: 3396192009094472415}
   m_Layer: 5
   m_Name: iteration_popup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6433463350153074092
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1392,6 +1393,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &3396192009094472415
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857364388692432010}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4964178024080679009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,6 +1550,7 @@ GameObject:
   - component: {fileID: 8852880645339689620}
   - component: {fileID: 1372319054732131663}
   - component: {fileID: 7724147439600653132}
+  - component: {fileID: 117045702}
   m_Layer: 5
   m_Name: button
   m_TagString: Untagged
@@ -1644,6 +1658,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &117045702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316179549271344054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279cd8fa561018a41be05d911ccc7f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5445422546904315160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,6 +1682,7 @@ GameObject:
   - component: {fileID: 889822790542190395}
   - component: {fileID: 1969542255120912743}
   - component: {fileID: 3516536188647833493}
+  - component: {fileID: 2083759422968753066}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1746,6 +1773,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2083759422968753066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445422546904315160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c567cc2d9ebf1449ab80d0981baa9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuPanel: {fileID: 5951104343843499320}
+  IterationPanel: {fileID: 3396192009094472415}
+  TimeShowIterationPanel: 2
+  TimeShowAndHideInteractionPanen: 1
 --- !u!1 &5505395005272698068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,7 +1973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1429601098376586964
 RectTransform:
   m_ObjectHideFlags: 0
