@@ -124,6 +124,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6314112011933861836, guid: a9441b558de23e14ab2f12ce020aa8a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433595061731282487, guid: a9441b558de23e14ab2f12ce020aa8a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6621004737289429213, guid: a9441b558de23e14ab2f12ce020aa8a5,
         type: 3}
       propertyPath: isPlayer

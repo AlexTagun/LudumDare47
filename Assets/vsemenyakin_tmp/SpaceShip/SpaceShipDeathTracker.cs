@@ -24,7 +24,7 @@ public class SpaceShipDeathTracker : MonoBehaviour
             }
             else
             {
-                bool theIsPlayerImpacted = inRocketMovement.shooterSpaceShipMovement.gameObject == playerSpaceShipController.gameObject;
+                bool theIsPlayerImpacted = inRocketMovement?.shooterSpaceShipMovement != null && inRocketMovement.shooterSpaceShipMovement.gameObject == playerSpaceShipController.gameObject;
                 spaceShipManager.processCloneSpaceShipDeath(theSpaceshipMovement, theIsPlayerImpacted);
             }
         };

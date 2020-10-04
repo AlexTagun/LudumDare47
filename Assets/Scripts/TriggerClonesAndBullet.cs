@@ -15,6 +15,7 @@ public class TriggerClonesAndBullet : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PortableObject>())
         {
+            Debug.Log("Обнаружен объект для ТП");
             spawnController.AddInListObjectsWaitingTeleport(other.gameObject);
         }
     }

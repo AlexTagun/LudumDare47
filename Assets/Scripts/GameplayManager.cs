@@ -68,7 +68,10 @@ public class GameplayManager : MonoBehaviour {
         _isGameplayState = false;
         UpdateInfoWindow();
         infoWindow.gameObject.SetActive(true);
-        
+        if (iterationController.spawnCoroutine != null)
+        {
+            StopCoroutine(iterationController.spawnCoroutine);
+        }
         Time.timeScale = 0;
     }
 

@@ -8,6 +8,8 @@ public class NewIterationController : MonoBehaviour
     public SpaceShipManager shipManager = null;
     public List<GameObject> activeBulletsOnScene = new List<GameObject>();
     public List<GameObject> activeClonesOnScene = new List<GameObject>();
+
+    public Coroutine spawnCoroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,21 +21,24 @@ public class NewIterationController : MonoBehaviour
 
     public void StartNewIteration()
     {
-        for (int i = 0; i < activeBulletsOnScene.Count; i++)
+        foreach (var bullet in activeBulletsOnScene)
         {
-            if(activeBulletsOnScene[i] != null)
+            if (bullet != null)
             {
-                Destroy(activeBulletsOnScene[i]);
+                Destroy(bullet);
             }
-            activeBulletsOnScene.RemoveAt(i);
         }
-        for (int i = 0; i < activeClonesOnScene.Count; i++)
+        activeBulletsOnScene.Clear();
+        foreach (var clone in activeClonesOnScene)
         {
-            Destroy(activeClonesOnScene[i]);
-            activeClonesOnScene.RemoveAt(i);
+            if (clone != null)
+            {
+                Destroy(clone);
+            }
         }
+        activeClonesOnScene.Clear();
         spawnController.ReplaceForNewIteration(transform.position);
-        StartCoroutine(shipManager.startSpawnClones(spawnController.positionSpawnClone));
+        spawnCoroutine =  StartCoroutine(shipManager.startSpawnClones(spawnController.positionSpawnClone));
 
         FindObjectOfType<SpaceShipPlayerController>().startRecordingNewReplay();
     }

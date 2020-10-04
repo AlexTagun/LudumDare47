@@ -66,7 +66,7 @@ public class SpawnController : MonoBehaviour
         }
         for (int i = 0; i < NumberObstacles; i++)
         {
-            var obstacle = Instantiate(obstaclePrefab, PlayerPrefab.transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnObstacles * i + StartDistanceFromPlayerToSpawnObstacles), Quaternion.identity);
+            var obstacle = Instantiate(obstaclePrefab, transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnObstacles * i + StartDistanceFromPlayerToSpawnObstacles + PlayerPrefab.transform.position.z), Quaternion.identity);
             obstacles.Add(obstacle);
             startSequenceObstacles.Add(obstacle);
         }
@@ -125,10 +125,24 @@ public class SpawnController : MonoBehaviour
 
     public void MoveObjectsWaitingTeleport()
     {
+        Debug.Log("Начало ТП клонов" + objectsWaitingTeleport.Count);
         foreach (var item in objectsWaitingTeleport)
         {
-            item.transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel);
+            Debug.Log("Тп клон");
+            if (item != null)
+            {
+                item.transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel);
+            }
         }
+        objectsWaitingTeleport.Clear();
+        /*for (int i = 0; i < objectsWaitingTeleport.Count; i++)
+        {
+            if (objectsWaitingTeleport[i] != null)
+            {
+                objectsWaitingTeleport[i].transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel);
+                objectsWaitingTeleport.Remove(item);
+            }
+        }*/
     }
 
 }

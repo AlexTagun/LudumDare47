@@ -21,7 +21,6 @@ public class SpaceShipManager : MonoBehaviour
             var theReplayController = inDeadSpaceShipMovement.GetComponent<SpaceShipActionsReplayController>();
             _replayForClones.Remove(theReplayController.replay);
         }
-        iterationController.activeClonesOnScene.Remove(inDeadSpaceShipMovement.gameObject);
         Destroy(inDeadSpaceShipMovement.gameObject);
     }
 
