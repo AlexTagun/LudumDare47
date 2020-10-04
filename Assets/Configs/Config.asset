@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointsPerSecond: 10
   PointsForDestroyingObstacle: 0
+  LevelPointCost: 00000000e8030000d0070000b80b000088130000401f0000
