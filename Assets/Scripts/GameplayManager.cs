@@ -47,7 +47,7 @@ public class GameplayManager : MonoBehaviour {
         _isGameplayState = true;
         _curIterationIndex++;
         infoWindow.SetActive(false);
-        spaceShip.SetActive(true);
+        // spaceShip.SetActive(true);
         UpdateIterationIndex();
         Time.timeScale = 1;
         if (_curIterationIndex != 1)

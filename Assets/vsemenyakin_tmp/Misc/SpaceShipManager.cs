@@ -13,7 +13,7 @@ public class SpaceShipManager : MonoBehaviour
         _replayForClones.Add(theReplayOfDeadPlayer);
 
         _gameplayManager.EndIteration();
-        inDeadSpaceShipMovement.gameObject.SetActive(false);
+        // inDeadSpaceShipMovement.gameObject.SetActive(false);
     }
 
     public void processCloneSpaceShipDeath(SpaceShipMovement inDeadSpaceShipMovement, bool inDeathCausedByPlayer) {
