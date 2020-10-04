@@ -80,6 +80,13 @@ public class GameplayManager : MonoBehaviour {
     }
 
     private void UpdateInfoWindow() {
+        if (_curLevel + 1 > ConfigManager.Data.LevelPointCost.Length) {
+            infoWindowUpgradeButton.gameObject.SetActive(false);
+            infoWindowText.text = $"POINTS EARNED: {Mathf.RoundToInt(_curPoints).ToString()}\n" +
+                                  $"TOTAL POINTS: {Mathf.RoundToInt(_totalPoints).ToString()}\n" +
+                                  $"UPGRADE AVAILABLE: No";
+            return;
+        }
         var upgradeAvailable = _totalPoints >= ConfigManager.Data.LevelPointCost[_curLevel] ? "Yes" : "No";
         infoWindowUpgradeButton.gameObject.SetActive(_totalPoints >= ConfigManager.Data.LevelPointCost[_curLevel]);
         infoWindowText.text = $"POINTS EARNED: {Mathf.RoundToInt(_curPoints).ToString()}\n" +
