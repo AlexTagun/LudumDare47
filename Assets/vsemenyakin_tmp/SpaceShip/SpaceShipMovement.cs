@@ -18,11 +18,11 @@ public class SpaceShipMovement : MonoBehaviour
         changeTargetSidePosition(new Vector2Int(0, -1));
     }
 
-    private void Awake() {
-        setupInitialState();
+    private void Start() {
+        setupInitialStepRelatedState();
     }
 
-    private void setupInitialState() {
+    private void setupInitialStepRelatedState() {
         _targetSidePosition = transform.position;
     }
 

@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 5360903223274206423}
   - component: {fileID: 5360903223274206419}
   - component: {fileID: 5360903223274206416}
+  - component: {fileID: 889885046711035023}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -200,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f61d1772fa535646b2d8441535ff989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _step: 10
+  _step: 5
   _frontSpeedUnitsPerSecond: 10
   _sideStepsPerSecondVelocity: 5
   _visualTransform: {fileID: 5360903223329549735}
@@ -218,6 +219,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 5360903223274206419}
   _rocketSpawner: {fileID: 3472278854353807775}
+  _replayRecorder: {fileID: 889885046711035023}
+--- !u!114 &889885046711035023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360903223274206422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74283acdc503bd489a8541f2564f8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6040556832711176654
 PrefabInstance:
   m_ObjectHideFlags: 0
