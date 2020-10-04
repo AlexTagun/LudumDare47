@@ -2,6 +2,10 @@
 
 public class RocketMovement : MonoBehaviour
 {
+    private void Awake() {
+        _rocketTarget.onHittedByRocket = (RocketMovement unused) => performDestroy();
+    }
+
     private void FixedUpdate() {
         updateCollisions();
         updateMovement();
@@ -28,12 +32,16 @@ public class RocketMovement : MonoBehaviour
         }
 
         if (theAnyCollisionFound) {
-            Destroy(gameObject);
+            performDestroy();
         }
     }
 
     private void updateMovement() {
         transform.position += frameVelocityVector;
+    }
+
+    private void performDestroy() {
+        Destroy(gameObject);
     }
 
     private Vector3 velocityVector => transform.forward * _speed;
@@ -45,4 +53,6 @@ public class RocketMovement : MonoBehaviour
     [SerializeField]
     private SphereCollider _collider = null;
 
+    [SerializeField]
+    private RocketTarget _rocketTarget = null;
 }

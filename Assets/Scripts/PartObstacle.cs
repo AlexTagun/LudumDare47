@@ -8,10 +8,12 @@ public class PartObstacle : MonoBehaviour
     public Obstacle parent = null;
     public MeshRenderer meshRenderer = null;
     public RocketTarget rocketTarget = null;
+    public ImpactReactionTrigger impactReactionTrigger = null;
 
     // Start is called before the first frame update
     void Start() {
         rocketTarget.onHittedByRocket = (RocketMovement inRocket)=>performDestroy();
+        impactReactionTrigger.onImpacted = (ImpactReactionTrigger inOtherTrigger)=>performDestroy();
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -25,6 +27,5 @@ public class PartObstacle : MonoBehaviour
             parent.CurrenNumberOfDestructibleBlocks--;
             gameObject.SetActive(false);
         }
-        // смерть врезающегося объекта
     }
 }
