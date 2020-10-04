@@ -51,7 +51,8 @@ public class SpawnController : MonoBehaviour
         PlayerPrefab.transform.position = position;
         for (int i = 0; i < startSequenceObstacles.Count; i++)
         {
-            obstacles[i].transform.position = position + new Vector3(0f, 0f, StartDistanceFromPlayerToSpawnObstacles + DistanceBetweenSpawnObstacles * i);
+            startSequenceObstacles[i].transform.position = position + new Vector3(0f, 0f, StartDistanceFromPlayerToSpawnObstacles + DistanceBetweenSpawnObstacles * i);
+            obstacles[i] = startSequenceObstacles[i];
         }
 
     }
