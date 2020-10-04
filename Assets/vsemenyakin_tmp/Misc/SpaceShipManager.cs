@@ -25,12 +25,20 @@ public class SpaceShipManager : MonoBehaviour
         Destroy(inDeadSpaceShipMovement.gameObject);
     }
 
-    public void spawnClones(Vector3 inCloneSpawnPoint) {
-        if (_replayForClones.Count > 0) {
+    public System.Collections.IEnumerator startSpawnClones(Vector3 inCloneSpawnPoint) {
+        List<SpaceShipActionsReplay> theCurrentIteratorClones = new List<SpaceShipActionsReplay>(_replayForClones);
+
+        int theCurrentSpawnIndex = 0;
+        
+        while (theCurrentSpawnIndex < theCurrentIteratorClones.Count) {
             var theCloneController = Instantiate(_clonePrefab);
             iterationController.activeClonesOnScene.Add(theCloneController.gameObject);
             theCloneController.transform.position = inCloneSpawnPoint;
-            theCloneController.startReplayPlaying(_replayForClones[0]);
+            theCloneController.startReplayPlaying(_replayForClones[theCurrentSpawnIndex]);
+            
+            ++theCurrentSpawnIndex;
+            
+            yield return new WaitForSeconds(1f);
         }
     }
 

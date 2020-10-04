@@ -2,6 +2,10 @@
 
 public class SpaceShipPlayerController : SpaceShipController
 {
+    public void startRecordingNewReplay() {
+        _replayRecorder.startNewRecording();
+    }
+
     public SpaceShipActionsReplay stopRecordingAndGetReplay() {
         return _replayRecorder.stopRecordingAndGetReplay();
     }
