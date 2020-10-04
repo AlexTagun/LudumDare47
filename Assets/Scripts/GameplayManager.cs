@@ -19,6 +19,7 @@ public class GameplayManager : MonoBehaviour {
     private float _curPoints = 0;
     private float _totalPoints = 0;
     private float _curIterationIndex = 0;
+    private int _curLevel = 1;
 
     private void Awake() {
         infoWindowNextButton.onClick.AddListener(StartIteration);
@@ -57,11 +58,12 @@ public class GameplayManager : MonoBehaviour {
     }
 
     private void UpdateInfoWindow() {
+        var upgradeAvailable = _totalPoints >= ConfigManager.Data.LevelPointCost[_curLevel] ? "Yes" : "No";
         infoWindowText.text = $"POINTS EARNED: {Mathf.RoundToInt(_curPoints).ToString()}\n" +
                               $"TOTAL POINTS: {Mathf.RoundToInt(_totalPoints).ToString()}\n" +
-                              $"UPGRADE AVAILABLE: YES\n" +
-                              $"NEXT UPGRADE: 15,000,000\n" +
-                              $"CLONES DESTROYED: 2\n" +
-                              $"CLONES LEFT: 4\n";
+                              $"UPGRADE AVAILABLE: {upgradeAvailable}\n" +
+                              $"NEXT UPGRADE: {ConfigManager.Data.LevelPointCost[_curLevel]}\n" +
+                              $"CLONES DESTROYED: 0\n" +
+                              $"CLONES LEFT: 0\n";
     }
 }
