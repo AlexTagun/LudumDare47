@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
-    [SerializeField] private GameObject playerPrefab = null;
+    public GameObject PlayerPrefab = null;
     public int NumberObstacles = 10;
     public int NumberPartLevel = 50;
     public float DistanceBetweenSpawnObstacles;
@@ -39,6 +39,19 @@ public class SpawnController : MonoBehaviour
         objectsWaitingTeleport.Remove(objectWaitingTeleport);
     }
 
+    public void ReplaceForNewIteration(Vector3 position)
+    {
+        for (int i = 0; i < partsLevel.Count; i++)
+        {
+            partsLevel[i].transform.position = position + new Vector3(0f, 0f, -70 + DistanceBetweenSpawnObstacles * i);
+        }
+        PlayerPrefab.transform.position = position;
+        for (int i = 0; i < obstacles.Count; i++)
+        {
+            obstacles[i].transform.position = position + new Vector3(0f, 0f, StartDistanceFromPlayerToSpawnObstacles + DistanceBetweenSpawnObstacles * i);
+        }
+
+    }
 
     public void SpawnObstacle()
     {
@@ -48,7 +61,7 @@ public class SpawnController : MonoBehaviour
         }
         for (int i = 0; i < NumberObstacles; i++)
         {
-            var obstacle = Instantiate(obstaclePrefab, playerPrefab.transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnObstacles * i + StartDistanceFromPlayerToSpawnObstacles), Quaternion.identity);
+            var obstacle = Instantiate(obstaclePrefab, PlayerPrefab.transform.position + new Vector3(0f, 0f, DistanceBetweenSpawnObstacles * i + StartDistanceFromPlayerToSpawnObstacles), Quaternion.identity);
             obstacles.Add(obstacle);
         }
 
@@ -95,7 +108,13 @@ public class SpawnController : MonoBehaviour
 
     public void MovePartLevel(GameObject partLevel)
     {
-        partLevel.transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel);
+        if (partLevel.Equals(obstacles[1]))
+        {
+            var firstPartLevel = partsLevel[0];
+            partsLevel.RemoveAt(0);
+            partsLevel.Add(firstPartLevel);
+            firstPartLevel.transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel);
+        }
     }
 
     public void MoveObjectsWaitingTeleport()
