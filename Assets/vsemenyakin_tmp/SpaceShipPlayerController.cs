@@ -55,6 +55,8 @@ public class SpaceShipPlayerController : MonoBehaviour
     [SerializeField]
     private RocketSpawner _rocketSpawner = null;
 
+    public RocketSpawner RocketSpawner => _rocketSpawner;
+
     private GameInput.PushButton _moveRightPushButton;
     private GameInput.PushButton _moveLeftPushButton;
     private GameInput.PushButton _moveUpPushButton;

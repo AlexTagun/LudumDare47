@@ -16,6 +16,7 @@ public class BtnStart : MonoBehaviour
         buttonStart.onClick.AddListener(() => {
             spawnController.SpawnObstacle();
             UIController.StartCoroutine(UIController.ShowIterationPanel());
+            UIController.GameplayPanel.SetActive(true);
             UIController.MenuPanel.SetActive(false);
         });
     }

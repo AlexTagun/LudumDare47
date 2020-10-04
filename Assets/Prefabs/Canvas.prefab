@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 6995072567510355507}
   - component: {fileID: 8509723727153397541}
   - component: {fileID: 1502268106964248867}
+  - component: {fileID: 7141849888546754161}
   m_Layer: 5
   m_Name: bullet_button
   m_TagString: Untagged
@@ -330,6 +331,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7141849888546754161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925766475681716728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd00e098feeb9ac4aa7966b43e8b9c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1704236805371856737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,7 +1348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6433463350153074092
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1787,6 +1800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuPanel: {fileID: 5951104343843499320}
   IterationPanel: {fileID: 3396192009094472415}
+  GameplayPanel: {fileID: 2227134383064752766}
   TimeShowIterationPanel: 2
   TimeShowAndHideInteractionPanen: 1
 --- !u!1 &5505395005272698068
@@ -1973,7 +1987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1429601098376586964
 RectTransform:
   m_ObjectHideFlags: 0
