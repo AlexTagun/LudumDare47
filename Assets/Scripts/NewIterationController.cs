@@ -33,7 +33,7 @@ public class NewIterationController : MonoBehaviour
             activeClonesOnScene.RemoveAt(i);
         }
         spawnController.ReplaceForNewIteration(transform.position);
-        shipManager.startSpawnClones(spawnController.positionSpawnClone);
+        StartCoroutine(shipManager.startSpawnClones(spawnController.positionSpawnClone));
 
         FindObjectOfType<SpaceShipPlayerController>().startRecordingNewReplay();
     }
