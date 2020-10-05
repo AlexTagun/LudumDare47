@@ -4,9 +4,12 @@ using System.Collections.Generic;
 public class SpaceShipManager : MonoBehaviour
 {
     private NewIterationController iterationController = null;
+    private SpawnController spawnController = null;
+
     private void Start()
     {
         iterationController = (NewIterationController)FindObjectOfType(typeof(NewIterationController));
+        spawnController = (SpawnController)FindObjectOfType(typeof(SpawnController));
     }
     public void processPlayerSpaceShipDeath(SpaceShipMovement inDeadSpaceShipMovement) {
         SpaceShipActionsReplay theReplayOfDeadPlayer = inDeadSpaceShipMovement.GetComponent<SpaceShipPlayerController>().stopRecordingAndGetReplay();
@@ -24,7 +27,7 @@ public class SpaceShipManager : MonoBehaviour
         Destroy(inDeadSpaceShipMovement.gameObject);
     }
 
-    public System.Collections.IEnumerator startSpawnClones(Vector3 inCloneSpawnPoint) {
+    public System.Collections.IEnumerator startSpawnClones() {
         List<SpaceShipActionsReplay> theCurrentIteratorClones = new List<SpaceShipActionsReplay>(_replayForClones);
 
         int theCurrentSpawnIndex = 0;
@@ -32,7 +35,7 @@ public class SpaceShipManager : MonoBehaviour
         while (theCurrentSpawnIndex < theCurrentIteratorClones.Count) {
             var theCloneController = Instantiate(_clonePrefab);
             iterationController.activeClonesOnScene.Add(theCloneController.gameObject);
-            theCloneController.transform.position = inCloneSpawnPoint;
+            theCloneController.transform.position = spawnController.positionSpawnClone;
             theCloneController.startReplayPlaying(_replayForClones[theCurrentSpawnIndex]);
             
             ++theCurrentSpawnIndex;
