@@ -28,6 +28,7 @@ public class SpaceShipMovement : MonoBehaviour
 
     private void Start() {
         setupInitialStepRelatedState();
+        SetStartPlayerSpeed();
     }
 
     private void setupInitialStepRelatedState() {
@@ -47,12 +48,31 @@ public class SpaceShipMovement : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        updateFrontMovement();
+        /*if (isPlayer)
+            updateScaleFrontMovement();
+        else
+            updateFrontMovement();*/
+        updateScaleFrontMovement();
         updateSideMovement();
         updateRotationFromSpeed();
     }
 
     private void updateFrontMovement() {
+        float theFrontSpeedUnitsPerFrame = _frontSpeedUnitsPerSecond * Time.fixedDeltaTime;
+        transform.position += frontDirection * theFrontSpeedUnitsPerFrame;
+    }
+
+    private void updateScaleFrontMovement()
+    {
+        if (timeUpSpeed >= ConfigManager.Data.IntervalBetweenSpeedIncrease)
+        {
+            _frontSpeedUnitsPerSecond += (isPlayer)? ConfigManager.Data.PlusToSpeed : -ConfigManager.Data.PlusToSpeed;
+            timeUpSpeed = 0f;
+        }
+        else
+        {
+            timeUpSpeed += Time.fixedDeltaTime;
+        }
         float theFrontSpeedUnitsPerFrame = _frontSpeedUnitsPerSecond * Time.fixedDeltaTime;
         transform.position += frontDirection * theFrontSpeedUnitsPerFrame;
     }
@@ -93,6 +113,10 @@ public class SpaceShipMovement : MonoBehaviour
         }
     }
 
+    public void SetStartPlayerSpeed()
+    {
+        _frontSpeedUnitsPerSecond = (isPlayer)? ConfigManager.Data.StartShipSpeed : -ConfigManager.Data.StartShipSpeed;
+    }
     private float step => _step;
     private Vector3 frontDirection => Vector3.forward;
 
@@ -127,6 +151,8 @@ public class SpaceShipMovement : MonoBehaviour
     private Vector2Int _targetSideStepPosition = Vector2Int.zero;
     private float _timeToAchieveTargetPosition = 0f;
 
+    public bool isPlayer = false;
+    private float timeUpSpeed = 0f;
     public void TPlayer()
     {
         _initialSidePosition = transform.position;

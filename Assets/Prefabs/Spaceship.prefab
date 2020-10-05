@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iterationController: {fileID: 0}
+  _gameplayManager: {fileID: 0}
   _spawnPoint: {fileID: 3386460693979907232}
   _rocketPrefab: {fileID: 2922842438159476095, guid: 11ee858c0083445459927a248d71eb6b,
     type: 3}
@@ -362,6 +363,7 @@ MonoBehaviour:
     downLimits: -2
     upLimits: 2
   _visualTransform: {fileID: 5360903223329549735}
+  isPlayer: 1
 --- !u!114 &5360903223274206416
 MonoBehaviour:
   m_ObjectHideFlags: 0

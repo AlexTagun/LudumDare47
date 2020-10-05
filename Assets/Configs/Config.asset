@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointsPerSecond: 10
   PointsForDestroyingObstacle: 200
-  StartShipSpeed: 0
-  IntervalBetweenSpeedIncrease: 20
-  CoefficientSpeedIncrease: 1.1
+  StartShipSpeed: 10
+  IntervalBetweenSpeedIncrease: 10
+  PlusToSpeed: 0.3
   LevelPointCost: 00000000e8030000d0070000b80b000088130000401f0000c832000008520000d0840000d8d60000a85b010080320200288e0300a8c00500d04e0900780f0f00485e1800c06d270008cc3f00c8396700d005a700983f0e016845b5010085c30268ca7804684f3c07d019b50b3869f1120883a61e40ec9731
   StartBulletCount: 5
   NumberObstacles: 10
   NumberPartLevel: 50
-  DistanceBetweenSpawnObstacles: 10
-  DistanceBetweenSpawnPartLevel: 10
+  DistanceBetweenSpawnObstacles: 0
+  DistanceBetweenSpawnPartLevel: 0
   StartDistanceFromPlayerToSpawnObstacles: 50
   MaxNumberOfImmuneBlocks: 10
-  MinNumberOfImmuneBlocks: 5
+  MinNumberOfImmuneBlocks: 0

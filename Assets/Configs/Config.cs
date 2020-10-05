@@ -11,7 +11,7 @@ public class Config : ScriptableObject {
     [Header("Speed")]
     public float StartShipSpeed;
     public float IntervalBetweenSpeedIncrease;
-    public float CoefficientSpeedIncrease;
+    public float PlusToSpeed;
 
 
     public int[] LevelPointCost;

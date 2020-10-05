@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: _frontSpeedUnitsPerSecond
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 5360903223274206419, guid: a9441b558de23e14ab2f12ce020aa8a5,
+        type: 3}
+      propertyPath: isPlayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5360903223274206422, guid: a9441b558de23e14ab2f12ce020aa8a5,
         type: 3}
       propertyPath: m_Name
