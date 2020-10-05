@@ -107,6 +107,14 @@ public class GameplayManager : MonoBehaviour {
         var ships = GameObject.FindObjectsOfType<SpaceShipActionsReplayController>();
         if (ships == null || ships.Length == 0 && _timerCoroutine == null) {
             StartTimer();
+            return;
+        }
+
+        if (ships.Length > 0) {
+            cloneInfoText.gameObject.transform.parent.gameObject.SetActive(true);
+            cloneInfoText.text = $"{ships.Length} CLONES LEFT";
+        } else {
+            // cloneInfoText.gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
 
