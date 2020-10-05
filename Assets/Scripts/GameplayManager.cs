@@ -151,7 +151,7 @@ public class GameplayManager : MonoBehaviour {
         _secondsLeft = ConfigManager.Data.WinTimer;
         cloneInfoText.gameObject.transform.parent.gameObject.SetActive(true);
         cloneInfoText.text = $"{_secondsLeft}";
-        while (_secondsLeft >= 0) {
+        while (_secondsLeft >= 1) {
             _secondsLeft -= 1;
             yield return new WaitForSeconds(1);
             cloneInfoText.text = $"{_secondsLeft}";
