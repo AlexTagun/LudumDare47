@@ -37,10 +37,31 @@ public class SpaceShipManager : MonoBehaviour
             iterationController.activeClonesOnScene.Add(theCloneController.gameObject);
             theCloneController.transform.position = spawnController.positionSpawnClone;
             theCloneController.startReplayPlaying(_replayForClones[theCurrentSpawnIndex]);
-            
+
+            //performFirstSpawnedCloneTest(theCloneController, theCurrentSpawnIndex);
+
             ++theCurrentSpawnIndex;
             
             yield return new WaitForSeconds(1f);
+        }
+    }
+
+    private void performFirstSpawnedCloneTest(SpaceShipActionsReplayController theCloneController, int theSpawnedCloneIndex) {
+        if (0 == theSpawnedCloneIndex) {
+            var thePlayerController = FindObjectOfType<SpaceShipPlayerController>();
+            thePlayerController.GetComponent<SpaceShipMovement>().makeHackStop();
+
+            Camera theCamera = thePlayerController.GetComponentInChildren<Camera>();
+            theCamera.transform.SetParent(theCloneController.transform, false);
+
+            theCamera.transform.localPosition = new Vector3(
+                theCamera.transform.localPosition.x,
+                theCamera.transform.localPosition.y,
+                -theCamera.transform.localPosition.z);
+            theCamera.transform.rotation = Quaternion.Euler(
+                theCamera.transform.rotation.x,
+                180f,
+                theCamera.transform.rotation.z);
         }
     }
 
