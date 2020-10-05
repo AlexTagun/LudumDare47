@@ -24,7 +24,7 @@ public class RocketSpawner : MonoBehaviour
         Debug.Log($"Set speed - {inShooterSpaceShipMovement.FrontSpeedUnitsPerSecond}");
         theNewRocket.setSpeed(inShooterSpaceShipMovement.FrontSpeedUnitsPerSecond);
         theNewRocket.transform.position = _spawnPoint.position;
-        theNewRocket.setShooterSpaceShip(inShooterSpaceShipMovement);
+        theNewRocket.setIsShootedByPlayer(inShooterSpaceShipMovement.GetComponent<SpaceShipPlayerController>());
         iterationController.activeBulletsOnScene.Add(theNewRocket.gameObject);
     }
 

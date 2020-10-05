@@ -2,8 +2,8 @@
 
 public class RocketMovement : MonoBehaviour
 {
-    public void setShooterSpaceShip(SpaceShipMovement inSpaceShip) {
-        _shooterSpaceShipMovement = inSpaceShip;
+    public void setIsShootedByPlayer(bool inIsShootedByPlayer) {
+        _isShootedByPlayer = inIsShootedByPlayer;
     }
     
     public void setSpeed(float speed) {
@@ -14,7 +14,7 @@ public class RocketMovement : MonoBehaviour
         _speed = -_speed;
     }
 
-    public SpaceShipMovement shooterSpaceShipMovement => _shooterSpaceShipMovement;
+    public bool isShootedByPlayer => _isShootedByPlayer;
 
     private void Awake() {
         _rocketTarget.onHittedByRocket = (RocketMovement unused) => performDestroy();
@@ -70,5 +70,5 @@ public class RocketMovement : MonoBehaviour
     [SerializeField]
     private RocketTarget _rocketTarget = null;
 
-    private SpaceShipMovement _shooterSpaceShipMovement = null;
+    private bool _isShootedByPlayer = false;
 }
