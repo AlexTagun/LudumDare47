@@ -4,6 +4,8 @@ public class RocketSpawner : MonoBehaviour
 {
     [SerializeField] private NewIterationController iterationController;
     [SerializeField] private GameplayManager _gameplayManager;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
     
 
     private void Start() {
@@ -16,6 +18,7 @@ public class RocketSpawner : MonoBehaviour
             _gameplayManager.CurBulletCount--;
         }
         var theNewRocket = Instantiate(_rocketPrefab);
+        _audioSource.PlayOneShot(_audioClip);
         if (isInverted())
             theNewRocket.makeInverted();
         theNewRocket.transform.position = _spawnPoint.position;
