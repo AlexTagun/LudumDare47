@@ -68,11 +68,15 @@ public class SpaceShipMovement : MonoBehaviour
         if (timeUpSpeed >= ConfigManager.Data.IntervalBetweenSpeedIncrease)
         {
             _frontSpeedUnitsPerSecond += (isPlayer)? ConfigManager.Data.PlusToSpeed : -ConfigManager.Data.PlusToSpeed;
-            DOTween.To(
-                ()=> Camera.main.fieldOfView, 
-                x=> Camera.main.fieldOfView = x, 
-                Mathf.Lerp(60, 120, _frontSpeedUnitsPerSecond / 20f),
-                0.5f);
+            //Camera.main.fieldOfView = Mathf.Lerp(60, 120, _frontSpeedUnitsPerSecond / 20f);
+
+            if (isPlayer) {
+                DOTween.To(
+                    () => Camera.main.fieldOfView,
+                    x => Camera.main.fieldOfView = x,
+                    Mathf.Lerp(60, 120, _frontSpeedUnitsPerSecond / 20f),
+                    0.5f);
+            }
             timeUpSpeed = 0f;
         }
         else
