@@ -15,7 +15,7 @@ public class SpaceShipManager : MonoBehaviour
         SpaceShipActionsReplay theReplayOfDeadPlayer = inDeadSpaceShipMovement.GetComponent<SpaceShipPlayerController>().stopRecordingAndGetReplay();
         _replayForClones.Add(theReplayOfDeadPlayer);
 
-        _gameplayManager.EndIteration();
+        _gameplayManager.EndIteration(false);
         // inDeadSpaceShipMovement.gameObject.SetActive(false);
     }
 
