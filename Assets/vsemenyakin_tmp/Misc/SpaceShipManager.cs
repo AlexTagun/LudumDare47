@@ -46,7 +46,7 @@ public class SpaceShipManager : MonoBehaviour
 
             ++theCurrentSpawnIndex;
             
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(_timeBetweenClonesSpawn);
         }
     }
 
@@ -74,6 +74,9 @@ public class SpaceShipManager : MonoBehaviour
 
     [SerializeField]
     private GameplayManager _gameplayManager;
+
+    [SerializeField]
+    private float _timeBetweenClonesSpawn = 1f;
 
     private List<SpaceShipActionsReplay> _replayForClones = new List<SpaceShipActionsReplay>();
 }
