@@ -149,6 +149,7 @@ MonoBehaviour:
   - {fileID: 523594230311599997}
   - {fileID: 5941829196224117530}
   - {fileID: 7966756509786840883}
+  CurrenNumberOfIndestructibleBlocks: 0
   CurrenNumberOfDestructibleBlocks: 0
   materialDestructibleBlocks: {fileID: 2100000, guid: b5b35d06a7f595442be704dd423265a3,
     type: 2}
