@@ -8,8 +8,12 @@ public class Config : ScriptableObject {
     
     public int PointsPerSecond;
     public int PointsForDestroyingObstacle;
+    [Header("Speed")]
+    public float StartShipSpeed;
     public float IntervalBetweenSpeedIncrease;
     public float CoefficientSpeedIncrease;
+
+
     public int[] LevelPointCost;
     public int StartBulletCount;
 }
