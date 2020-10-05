@@ -33,7 +33,7 @@ public class SpaceShipManager : MonoBehaviour
         int theCurrentSpawnIndex = 0;
         
         while (theCurrentSpawnIndex < theCurrentIteratorClones.Count) {
-            SpaceShipActionsReplay theReplay = _replayForClones[theCurrentSpawnIndex];
+            SpaceShipActionsReplay theReplay = theCurrentIteratorClones[theCurrentSpawnIndex];
 
             if (null != theReplay) {
                 var theCloneController = Instantiate(_clonePrefab);
