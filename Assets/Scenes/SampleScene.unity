@@ -1529,6 +1529,7 @@ MonoBehaviour:
   infoWindowUpgradeButton: {fileID: 1131859622}
   infoWindowText: {fileID: 668639721}
   cloneInfoText: {fileID: 1114759048}
+  cloneInfoImage: {fileID: 1735414461}
   spaceShip: {fileID: 2016700017}
   iterationController: {fileID: 642582929}
   bulletCountText: {fileID: 1687925722}
@@ -1536,6 +1537,8 @@ MonoBehaviour:
   winWindowInfoTextSecond: {fileID: 2119702053}
   winWindow: {fileID: 1584772949}
   winWindowButton: {fileID: 1623200972}
+  cloneCountingColor: {r: 1, g: 0.16470589, b: 0.42745098, a: 0.7529412}
+  timerColor: {r: 0, g: 0.3372549, b: 0.4745098, a: 0.7529412}
 --- !u!4 &1495305879
 Transform:
   m_ObjectHideFlags: 0
@@ -1565,6 +1568,7 @@ MonoBehaviour:
   _clonePrefab: {fileID: 2499962149032556487, guid: 62c9acf420f050c4c9f1cb2b9e67b974,
     type: 3}
   _gameplayManager: {fileID: 1495305878}
+  _timeBetweenClonesSpawn: 1
 --- !u!1001 &1501136675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1877,6 +1881,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1735414461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6582583855838041474, guid: 964b6fccfecf8f94eac3d0391959b505,
+    type: 3}
+  m_PrefabInstance: {fileID: 668639720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2013885770
 PrefabInstance:
   m_ObjectHideFlags: 0

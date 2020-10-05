@@ -17,6 +17,7 @@ public class GameplayManager : MonoBehaviour {
     [SerializeField] private Button infoWindowUpgradeButton;
     [SerializeField] private TextMeshProUGUI infoWindowText;
     [SerializeField] private TextMeshProUGUI cloneInfoText;
+    [SerializeField] private Image cloneInfoImage;
     [SerializeField] private GameObject spaceShip;
     [SerializeField] private NewIterationController iterationController;
     [SerializeField] private TextMeshProUGUI bulletCountText;
@@ -24,6 +25,8 @@ public class GameplayManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI winWindowInfoTextSecond;
     [SerializeField] private GameObject winWindow;
     [SerializeField] private Button winWindowButton;
+    [SerializeField] private Color cloneCountingColor;
+    [SerializeField] private Color timerColor;
 
 
     private bool _isGameplayState;
@@ -112,6 +115,7 @@ public class GameplayManager : MonoBehaviour {
 
         if (ships.Length > 0) {
             cloneInfoText.gameObject.transform.parent.gameObject.SetActive(true);
+            cloneInfoImage.color = cloneCountingColor;
             cloneInfoText.text = $"{ships.Length} CLONES LEFT";
         } else {
             // cloneInfoText.gameObject.transform.parent.gameObject.SetActive(false);
@@ -158,6 +162,7 @@ public class GameplayManager : MonoBehaviour {
         _isTimerStarts = true;
         _secondsLeft = ConfigManager.Data.WinTimer;
         cloneInfoText.gameObject.transform.parent.gameObject.SetActive(true);
+        cloneInfoImage.color = timerColor;
         cloneInfoText.text = $"{_secondsLeft}";
         while (_secondsLeft >= 1) {
             _secondsLeft -= 1;
