@@ -27,6 +27,10 @@ public class SpawnController : MonoBehaviour
     public List<GameObject> objectsWaitingTeleport = new List<GameObject>();
     public List<GameObject> startSequenceObstacles = new List<GameObject>();
 
+    [SerializeField] private Transform firtsTriggerPlayer = null;
+    public float distanceFromFirstTriggerToPlayer = 0f;
+    [SerializeField] private Transform secondTriggerPlayer = null;
+    public float distanceFromSecondTriggerToPlayer = 0f;
     public Vector3 positionSpawnClone => new Vector3(0f, 0f, obstacles[obstacles.Count - 1].transform.position.z + StartDistanceFromPlayerToSpawnObstacles);
     // Start is called before the first frame update
     void Start() {
@@ -38,6 +42,10 @@ public class SpawnController : MonoBehaviour
         MinNumberOfImmuneBlocks = ConfigManager.Data.MinNumberOfImmuneBlocks;
         
         SpawnPartsLevel();
+
+        distanceFromFirstTriggerToPlayer = PlayerPrefab.transform.position.z - firtsTriggerPlayer.position.z;
+        distanceFromSecondTriggerToPlayer = PlayerPrefab.transform.position.z - secondTriggerPlayer.position.z;
+
     }
     public void AddInListObjectsWaitingTeleport(GameObject objectWaitingTeleport)
     {
@@ -138,7 +146,7 @@ public class SpawnController : MonoBehaviour
             Debug.Log("Тп клон");
             if (item != null)
             {
-                item.transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel);
+                item.transform.position += new Vector3(0f, 0f, partsLevel.Count * DistanceBetweenSpawnPartLevel + distanceFromFirstTriggerToPlayer);
             }
         }
         objectsWaitingTeleport.Clear();

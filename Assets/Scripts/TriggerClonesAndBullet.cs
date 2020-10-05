@@ -11,6 +11,7 @@ public class TriggerClonesAndBullet : MonoBehaviour
         spawnController = (SpawnController)FindObjectOfType(typeof(SpawnController));
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<PortableObject>())

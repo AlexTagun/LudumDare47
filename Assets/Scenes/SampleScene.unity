@@ -134,6 +134,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &109600306 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1765755111124283536, guid: a9441b558de23e14ab2f12ce020aa8a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 793960626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &451847889
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +289,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0b705a2b6e560459efef867cadc995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &663368959 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7506963771889651322, guid: a9441b558de23e14ab2f12ce020aa8a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 793960626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &668639720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1541,6 +1553,31 @@ PrefabInstance:
       propertyPath: PlayerPrefab
       value: 
       objectReference: {fileID: 2016700017}
+    - target: {fileID: 4241264402710982125, guid: 98a3c37bd82922b4a894eaf4ac7387e1,
+        type: 3}
+      propertyPath: MaxNumberOfImmuneBlocks
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241264402710982125, guid: 98a3c37bd82922b4a894eaf4ac7387e1,
+        type: 3}
+      propertyPath: MinNumberOfImmuneBlocks
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241264402710982125, guid: 98a3c37bd82922b4a894eaf4ac7387e1,
+        type: 3}
+      propertyPath: NumberObstacles
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241264402710982125, guid: 98a3c37bd82922b4a894eaf4ac7387e1,
+        type: 3}
+      propertyPath: secondTriggerPlayer
+      value: 
+      objectReference: {fileID: 663368959}
+    - target: {fileID: 4241264402710982125, guid: 98a3c37bd82922b4a894eaf4ac7387e1,
+        type: 3}
+      propertyPath: firtsTriggerPlayer
+      value: 
+      objectReference: {fileID: 109600306}
     - target: {fileID: 4241264402710982126, guid: 98a3c37bd82922b4a894eaf4ac7387e1,
         type: 3}
       propertyPath: m_LocalPosition.x

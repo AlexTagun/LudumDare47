@@ -19,10 +19,10 @@ MonoBehaviour:
   PlusToSpeed: 0.3
   LevelPointCost: 00000000e8030000d0070000b80b000088130000401f0000c832000008520000d0840000d8d60000a85b010080320200288e0300a8c00500d04e0900780f0f00485e1800c06d270008cc3f00c8396700d005a700983f0e016845b5010085c30268ca7804684f3c07d019b50b3869f1120883a61e40ec9731
   StartBulletCount: 5
-  NumberObstacles: 10
-  NumberPartLevel: 50
+  NumberObstacles: 3
+  NumberPartLevel: 20
   DistanceBetweenSpawnObstacles: 50
   DistanceBetweenSpawnPartLevel: 10
   StartDistanceFromPlayerToSpawnObstacles: 50
-  MaxNumberOfImmuneBlocks: 10
-  MinNumberOfImmuneBlocks: 5
+  MaxNumberOfImmuneBlocks: 0
+  MinNumberOfImmuneBlocks: 0

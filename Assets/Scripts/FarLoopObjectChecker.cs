@@ -25,7 +25,7 @@ public class FarLoopObjectChecker : MonoBehaviour
         {
             Debug.Log("Обнаружен объект для ТП ДАЛЕКО");
             spawnController.objectsWaitingTeleport.Remove(triggeredObject);
-            var position = spawnController.obstacles[(spawnController.obstacles.Count - 2)].transform.position;
+            var position = spawnController.obstacles[(spawnController.obstacles.Count - 2)].transform.position + new Vector3(0f, 0f, spawnController.distanceFromSecondTriggerToPlayer);
             triggeredObject.transform.position = position;
 
 
