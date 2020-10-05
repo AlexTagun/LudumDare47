@@ -21,8 +21,8 @@ MonoBehaviour:
   StartBulletCount: 5
   NumberObstacles: 10
   NumberPartLevel: 50
-  DistanceBetweenSpawnObstacles: 0
-  DistanceBetweenSpawnPartLevel: 0
+  DistanceBetweenSpawnObstacles: 50
+  DistanceBetweenSpawnPartLevel: 10
   StartDistanceFromPlayerToSpawnObstacles: 50
   MaxNumberOfImmuneBlocks: 10
-  MinNumberOfImmuneBlocks: 0
+  MinNumberOfImmuneBlocks: 5
