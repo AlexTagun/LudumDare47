@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fe2a617bbad33449579adf01964505, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  PointsPerSecond: 20
+  PointsPerSecond: 10
   PointsForDestroyingObstacle: 200
-  StartShipSpeed: 10
-  IntervalBetweenSpeedIncrease: 15
+  StartShipSpeed: 15
+  IntervalBetweenSpeedIncrease: 5
   PlusToSpeed: 1
-  BulletMultiplier: 1.3
+  BulletMultiplier: 1.2
   LevelPointCost: 00000000e8030000d0070000b80b000088130000401f0000c832000008520000d0840000d8d60000a85b010080320200288e0300a8c00500d04e0900780f0f00485e1800c06d270008cc3f00c8396700d005a700983f0e016845b5010085c30268ca7804684f3c07d019b50b3869f1120883a61e40ec9731
   StartBulletCount: 1
-  NumberObstacles: 8
+  NumberObstacles: 25
   NumberPartLevel: 20
-  DistanceBetweenSpawnObstacles: 20
+  DistanceBetweenSpawnObstacles: 18
   DistanceBetweenSpawnPartLevel: 10
-  StartDistanceFromPlayerToSpawnObstacles: 20
-  MaxNumberOfImmuneBlocks: 5
-  MinNumberOfImmuneBlocks: 0
+  StartDistanceFromPlayerToSpawnObstacles: 18
+  MaxNumberOfImmuneBlocks: 7
+  MinNumberOfImmuneBlocks: 2
+  WinTimer: 60
