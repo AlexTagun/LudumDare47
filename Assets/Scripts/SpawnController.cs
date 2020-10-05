@@ -29,8 +29,14 @@ public class SpawnController : MonoBehaviour
 
     public Vector3 positionSpawnClone => new Vector3(0f, 0f, obstacles[obstacles.Count - 1].transform.position.z + StartDistanceFromPlayerToSpawnObstacles);
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
+        NumberObstacles = ConfigManager.Data.NumberObstacles;
+        NumberPartLevel = ConfigManager.Data.NumberPartLevel;
+        DistanceBetweenSpawnObstacles = ConfigManager.Data.DistanceBetweenSpawnObstacles;
+        DistanceBetweenSpawnPartLevel = ConfigManager.Data.DistanceBetweenSpawnPartLevel;
+        MaxNumberOfImmuneBlocks = ConfigManager.Data.MaxNumberOfImmuneBlocks;
+        MinNumberOfImmuneBlocks = ConfigManager.Data.MinNumberOfImmuneBlocks;
+        
         SpawnPartsLevel();
     }
     public void AddInListObjectsWaitingTeleport(GameObject objectWaitingTeleport)

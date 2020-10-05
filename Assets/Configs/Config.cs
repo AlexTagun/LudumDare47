@@ -16,4 +16,12 @@ public class Config : ScriptableObject {
 
     public int[] LevelPointCost;
     public int StartBulletCount;
+    [Header("Level")]
+    public int NumberObstacles = 10;
+    public int NumberPartLevel = 50;
+    public float DistanceBetweenSpawnObstacles;
+    public float DistanceBetweenSpawnPartLevel;
+    public float StartDistanceFromPlayerToSpawnObstacles = 50f;
+    public int MaxNumberOfImmuneBlocks = 10;
+    public int MinNumberOfImmuneBlocks = 0;
 }
