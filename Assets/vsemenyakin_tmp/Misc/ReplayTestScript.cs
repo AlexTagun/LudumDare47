@@ -26,9 +26,11 @@ public class ReplayTestScript : MonoBehaviour
     }
 
     private void spawnCloneThatPlaysReplay(SpaceShipActionsReplay inReplay) {
-        var theCloneSpaceShip = Instantiate(_cloneSpaceShipPrefab);
-        theCloneSpaceShip.transform.position = _startingPlayerSpaceShipPosition;
-        theCloneSpaceShip.startReplayPlaying(inReplay);
+        if (null == inReplay) {
+            var theCloneSpaceShip = Instantiate(_cloneSpaceShipPrefab);
+            theCloneSpaceShip.transform.position = _startingPlayerSpaceShipPosition;
+            theCloneSpaceShip.startReplayPlaying(inReplay);
+        }
     }
 
     [SerializeField]

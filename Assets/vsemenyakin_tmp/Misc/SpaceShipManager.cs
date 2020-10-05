@@ -33,12 +33,16 @@ public class SpaceShipManager : MonoBehaviour
         int theCurrentSpawnIndex = 0;
         
         while (theCurrentSpawnIndex < theCurrentIteratorClones.Count) {
-            var theCloneController = Instantiate(_clonePrefab);
-            iterationController.activeClonesOnScene.Add(theCloneController.gameObject);
-            theCloneController.transform.position = spawnController.positionSpawnClone;
-            theCloneController.startReplayPlaying(_replayForClones[theCurrentSpawnIndex]);
+            SpaceShipActionsReplay theReplay = _replayForClones[theCurrentSpawnIndex];
 
-            //performFirstSpawnedCloneTest(theCloneController, theCurrentSpawnIndex);
+            if (null != theReplay) {
+                var theCloneController = Instantiate(_clonePrefab);
+                iterationController.activeClonesOnScene.Add(theCloneController.gameObject);
+                theCloneController.transform.position = spawnController.positionSpawnClone;
+                theCloneController.startReplayPlaying(theReplay);
+
+                //performFirstSpawnedCloneTest(theCloneController, theCurrentSpawnIndex);
+            }
 
             ++theCurrentSpawnIndex;
             
