@@ -139,7 +139,7 @@ public class GameplayManager : MonoBehaviour {
                                   $"UPGRADE AVAILABLE: No";
             return;
         }
-        var upgradeAvailable = _totalPoints >= ConfigManager.Data.LevelPointCost[_curLevel] ? "Yes" : "No";
+        var upgradeAvailable = _totalPoints >= ConfigManager.Data.LevelPointCost[_curLevel] ? "<color=#05D9E7>Yes</color>" : "<color=#FF2A6D>No</color>";
         infoWindowUpgradeButton.gameObject.SetActive(_totalPoints >= ConfigManager.Data.LevelPointCost[_curLevel]);
         infoWindowText.text = $"POINTS EARNED: {Mathf.RoundToInt(_curPoints).ToString()}\n" +
                               $"TOTAL POINTS: {Mathf.RoundToInt(_totalPoints).ToString()}\n" +
