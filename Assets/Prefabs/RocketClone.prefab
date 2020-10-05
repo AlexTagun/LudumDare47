@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1528032601820775153, guid: 11ee858c0083445459927a248d71eb6b,
         type: 3}
       propertyPath: m_Name
-      value: Rocket
+      value: RocketClone
       objectReference: {fileID: 0}
     - target: {fileID: 4978377573361072279, guid: 11ee858c0083445459927a248d71eb6b,
         type: 3}
@@ -66,6 +66,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868119999645941455, guid: 11ee858c0083445459927a248d71eb6b,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868119999645941455, guid: 11ee858c0083445459927a248d71eb6b,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.2300641
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868119999645941455, guid: 11ee858c0083445459927a248d71eb6b,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.29984167
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868119999645941455, guid: 11ee858c0083445459927a248d71eb6b,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868119999645941455, guid: 11ee858c0083445459927a248d71eb6b,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.4224448
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868119999645941455, guid: 11ee858c0083445459927a248d71eb6b,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.3921569
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ee858c0083445459927a248d71eb6b, type: 3}
