@@ -146,7 +146,7 @@ public class GameplayManager : MonoBehaviour {
 
     private IEnumerator TimerCoroutine() {
         _isTimerStarts = true;
-        _secondsLeft = 10;
+        _secondsLeft = ConfigManager.Data.WinTimer;
         cloneInfoText.gameObject.transform.parent.gameObject.SetActive(true);
         cloneInfoText.text = $"{_secondsLeft}";
         while (_secondsLeft >= 0) {

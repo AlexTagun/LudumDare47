@@ -25,4 +25,6 @@ public class Config : ScriptableObject {
     public float StartDistanceFromPlayerToSpawnObstacles = 50f;
     public int MaxNumberOfImmuneBlocks = 10;
     public int MinNumberOfImmuneBlocks = 0;
+    [Header("Win")]
+    public int WinTimer = 60;
 }
