@@ -54,6 +54,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3472278854353807775, guid: a9441b558de23e14ab2f12ce020aa8a5,
+        type: 3}
+      propertyPath: _rocketPrefab
+      value: 
+      objectReference: {fileID: 5826077347597422433, guid: 7fd5e6e9f2b74214c884c4780fb9b2dc,
+        type: 3}
     - target: {fileID: 3727236847598994067, guid: a9441b558de23e14ab2f12ce020aa8a5,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
