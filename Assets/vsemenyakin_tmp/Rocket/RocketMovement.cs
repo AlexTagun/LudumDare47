@@ -5,6 +5,10 @@ public class RocketMovement : MonoBehaviour
     public void setShooterSpaceShip(SpaceShipMovement inSpaceShip) {
         _shooterSpaceShipMovement = inSpaceShip;
     }
+    
+    public void setSpeed(float speed) {
+        _speed = speed * ConfigManager.Data.BulletMultiplier;
+    }
 
     public void makeInverted() {
         _speed = -_speed;

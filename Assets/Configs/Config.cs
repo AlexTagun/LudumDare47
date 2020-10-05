@@ -12,6 +12,7 @@ public class Config : ScriptableObject {
     public float StartShipSpeed;
     public float IntervalBetweenSpeedIncrease;
     public float PlusToSpeed;
+    public float BulletMultiplier = 1.5f;
 
 
     public int[] LevelPointCost;

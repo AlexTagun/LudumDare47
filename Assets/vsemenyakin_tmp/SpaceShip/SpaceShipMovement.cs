@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class SpaceShipMovement : MonoBehaviour
 {
@@ -67,6 +68,11 @@ public class SpaceShipMovement : MonoBehaviour
         if (timeUpSpeed >= ConfigManager.Data.IntervalBetweenSpeedIncrease)
         {
             _frontSpeedUnitsPerSecond += (isPlayer)? ConfigManager.Data.PlusToSpeed : -ConfigManager.Data.PlusToSpeed;
+            DOTween.To(
+                ()=> Camera.main.fieldOfView, 
+                x=> Camera.main.fieldOfView = x, 
+                Mathf.Lerp(60, 120, _frontSpeedUnitsPerSecond / 20f),
+                0.5f);
             timeUpSpeed = 0f;
         }
         else
@@ -130,6 +136,7 @@ public class SpaceShipMovement : MonoBehaviour
     [SerializeField]
     private float _frontSpeedUnitsPerSecond = 1f;
 
+    public float FrontSpeedUnitsPerSecond => _frontSpeedUnitsPerSecond;
     [SerializeField]
     private float _sideStepsPerSecondVelocity = 1f;
 

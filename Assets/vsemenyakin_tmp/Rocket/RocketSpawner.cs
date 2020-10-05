@@ -21,6 +21,8 @@ public class RocketSpawner : MonoBehaviour
         _audioSource.PlayOneShot(_audioClip);
         if (isInverted())
             theNewRocket.makeInverted();
+        Debug.Log($"Set speed - {inShooterSpaceShipMovement.FrontSpeedUnitsPerSecond}");
+        theNewRocket.setSpeed(inShooterSpaceShipMovement.FrontSpeedUnitsPerSecond);
         theNewRocket.transform.position = _spawnPoint.position;
         theNewRocket.setShooterSpaceShip(inShooterSpaceShipMovement);
         iterationController.activeBulletsOnScene.Add(theNewRocket.gameObject);
