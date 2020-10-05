@@ -124,6 +124,9 @@ public class SpawnController : MonoBehaviour
             obstacles.RemoveAt(0);
             obstacles.Add(firstObstacles);
             firstObstacles.transform.position += new Vector3(0f, 0f, obstacles.Count * DistanceBetweenSpawnObstacles);
+            var componentObstacle = firstObstacles.GetComponent<Obstacle>();
+            if (componentObstacle)
+                componentObstacle.CheckForDestructiveBlock();
         }
     }
 

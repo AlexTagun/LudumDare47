@@ -73,6 +73,8 @@ public class GameplayManager : MonoBehaviour {
         {
             iterationController.StartNewIteration();
         }
+
+        FindObjectOfType<SpaceShipPlayerController>().startRecordingNewReplay();
     }
     
     public void EndIteration(bool isWin) {

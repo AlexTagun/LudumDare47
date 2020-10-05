@@ -4,6 +4,7 @@ public class SpaceShipActionsReplayRecorder : MonoBehaviour, ISpaceShipActionsSc
 {
     public void startNewRecording() {
         _currentRecordingReplay = new SpaceShipActionsReplay();
+        _recordingStartTime = Time.fixedTime;
     }
 
     public SpaceShipActionsReplay stopRecordingAndGetReplay() {

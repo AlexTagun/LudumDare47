@@ -7,6 +7,7 @@ public class Obstacle : MonoBehaviour
 
     public SpawnController spawnController = null;
     public List<PartObstacle> partsObstacle = new List<PartObstacle>();
+    public int CurrenNumberOfIndestructibleBlocks = 0;
     public int CurrenNumberOfDestructibleBlocks = 0;
     public Material materialDestructibleBlocks = null;
     public Material materialIndestructibleBlocks = null;
@@ -26,6 +27,8 @@ public class Obstacle : MonoBehaviour
     }
     public void CheckForDestructiveBlock()
     {
+        Debug.Log("Проверка");
+        Debug.Log(CurrenNumberOfDestructibleBlocks);
         if (CurrenNumberOfDestructibleBlocks == 0)
         {
             RefreshObstacle();
@@ -40,11 +43,12 @@ public class Obstacle : MonoBehaviour
         Shuffle(array);
         float maxRandomNumberIndestructibleObjects = spawnController.MaxNumberOfImmuneBlocks;
         float minRandomNumberIndestructibleObjects = spawnController.MinNumberOfImmuneBlocks;
-        CurrenNumberOfDestructibleBlocks = Mathf.RoundToInt(Random.Range(minRandomNumberIndestructibleObjects, maxRandomNumberIndestructibleObjects));
-        for(int i = 0; i < array.Length; i++)
+        CurrenNumberOfIndestructibleBlocks = Mathf.RoundToInt(Random.Range(minRandomNumberIndestructibleObjects, maxRandomNumberIndestructibleObjects));
+        CurrenNumberOfDestructibleBlocks = 25 - CurrenNumberOfIndestructibleBlocks;
+        for (int i = 0; i < array.Length; i++)
         {
             var element = array[i];
-            if (element < CurrenNumberOfDestructibleBlocks)
+            if (element < CurrenNumberOfIndestructibleBlocks)
             {
                 MakeBlockIsIndestructible(partsObstacle[i]);
             }
