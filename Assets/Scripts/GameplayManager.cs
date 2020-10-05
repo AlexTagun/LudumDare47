@@ -44,6 +44,7 @@ public class GameplayManager : MonoBehaviour {
     }
 
     public void StartIteration() {
+        _curPoints = 0;
         _curBulletCount = ConfigManager.Data.StartBulletCount + _curLevel;
         bulletCountText.text = _curBulletCount.ToString();
         _isGameplayState = true;
