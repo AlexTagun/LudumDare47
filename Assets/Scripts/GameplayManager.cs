@@ -56,6 +56,7 @@ public class GameplayManager : MonoBehaviour {
 
     public void StartIteration() {
         _curPoints = 0;
+        cloneInfoText.gameObject.transform.parent.gameObject.SetActive(false);
         _curBulletCount = ConfigManager.Data.StartBulletCount + _curLevel;
         bulletCountText.text = _curBulletCount.ToString();
         _isGameplayState = true;
@@ -79,6 +80,7 @@ public class GameplayManager : MonoBehaviour {
     
     public void EndIteration(bool isWin) {
         if(_timerCoroutine != null) StopCoroutine(_timerCoroutine);
+        _timerCoroutine = null;
         _totalPoints += _curPoints;
         _isGameplayState = false;
         
