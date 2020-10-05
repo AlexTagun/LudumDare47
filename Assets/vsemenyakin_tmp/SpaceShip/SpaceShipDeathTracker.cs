@@ -19,18 +19,16 @@ public class SpaceShipDeathTracker : MonoBehaviour
 
             if (isPlayer)
             {
-                if (inRocketMovement.shooterSpaceShipMovement != playerSpaceShipController.GetComponent<SpaceShipMovement>())
+                if (!inRocketMovement.isShootedByPlayer)
                     spaceShipManager.processPlayerSpaceShipDeath(theSpaceshipMovement);
             }
             else
             {
-                bool theIsPlayerImpacted = inRocketMovement?.shooterSpaceShipMovement != null && inRocketMovement.shooterSpaceShipMovement.gameObject == playerSpaceShipController.gameObject;
+                bool theIsPlayerImpacted = inRocketMovement ? inRocketMovement.isShootedByPlayer : false;
                 spaceShipManager.processCloneSpaceShipDeath(theSpaceshipMovement, theIsPlayerImpacted);
             }
         };
     }
-
-    private SpaceShipPlayerController playerSpaceShipController => FindObjectOfType<SpaceShipPlayerController>();
 
     private SpaceShipManager spaceShipManager => FindObjectOfType<SpaceShipManager>();
 
